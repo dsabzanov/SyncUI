@@ -1,0 +1,60 @@
+#mainpage{
+    -fx-background-image: url("best_black_and_red_wallpapers_dekstop_background-1024x640.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 900 900;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 1.5, 1, 1);
+       -fx-font-size: 20px;
+       -fx-font-family: "Arial Black";
+-fx-text-fill: #FFFFFF;
+
+
+
+}
+
+#pagetwo{
+    -fx-background-image: url("Green-Wallpaper-19.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 1000 900;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 1.5, 1, 1);
+       -fx-font-size: 20 px;
+       -fx-font-family: "Arial Black";
+-fx-text-fill: #FFFFFF;
+}
+
+
+#pagethree{
+    -fx-background-image: url("hd-wallpapers-19242-19730-hd-wallpapers-1024x576.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 900 800;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 1.5, 1, 1);
+       -fx-font-size: 18 px;
+       -fx-font-family: "Arial Black";
+-fx-text-fill: #FFFFFF;
+}
+
+#pagesix{
+    -fx-background-image: url("best-hd-wallpapers-8324-8657-hd-wallpapers-1024x640.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 1000 900;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 1.5, 1, 1);
+       -fx-font-size: 18 px;
+       -fx-font-family: "Arial Black";
+-fx-text-fill: #FFFFFF;
+}
+
+#pagefour{
+
+        -fx-font-size: 20 px;
+        -fx-font-family: "Arial Black";
+ -fx-text-fill: #FFFFFF;
+ }
+ #Bigtext{
+
+        -fx-font-size: 35 px;
+        -fx-font-family: "Arial Black";
+ -fx-text-fill: #FFFFFF;
+ }
