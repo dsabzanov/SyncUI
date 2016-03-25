@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/COMP 380.iml" filepath="$PROJECT_DIR$/COMP 380.iml" />
+      <module fileurl="file://$PROJECT_DIR$/COMP380SYNC.iml" filepath="$PROJECT_DIR$/COMP380SYNC.iml" />
     </modules>
   </component>
 </project>
