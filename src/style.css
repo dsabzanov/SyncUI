@@ -58,3 +58,40 @@
         -fx-font-family: "Arial Black";
  -fx-text-fill: #FFFFFF;
  }
+ #ButtonChange{
+          -fx-font-size: 20px;
+          -fx-font-family: "Arial Black";
+          -fx-base: #ff0000;
+    }
+
+  #ButtonChange2{
+           -fx-font-size: 20px;
+           -fx-font-family: "Arial Black";
+           -fx-base: #228b22;
+     }
+  #ButtonChange3{
+           -fx-font-size: 20px;
+           -fx-font-family: "Arial Black";
+           -fx-base: #ff00ff;
+     }
+   #ButtonChange4{
+            -fx-font-size: 20px;
+            -fx-font-family: "Arial Black";
+            -fx-base: #00CCFF;
+      }
+    #Bluetooth{
+            -fx-background-image: url("02.gif");
+            -fx-background-repeat: stretch;
+                -fx-background-size: 600 500;
+                -fx-background-position: center center;
+                -fx-effect: dropshadow(three-pass-box, black, 30, 1.5, 1, 1);
+                fx-font-size: 80px;
+                            -fx-font-family: "Arial Black";
+                            -fx-base: #00CCFF;
+    }
+    #Bigtext{
+
+            -fx-font-size: 25 px;
+            -fx-font-family: "Arial Black";
+     -fx-text-fill: #FFFFFF;
+     }

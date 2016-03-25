@@ -34,7 +34,7 @@ public class HomePage extends  Application {
     Button CreateGroup;
     Button StartPage, addmusic;
     Button ViewSong;
-    Scene scene1, scene2, scene3, scene4, scene5,cs;
+    Scene scene1, scene2, scene3, scene4, scene5,scene6;
     TableView<DisplaySongs4host> Songtable;
 
     public static void main(String args[]) {
@@ -76,6 +76,12 @@ public class HomePage extends  Application {
         grid5.setVgap(8);
         grid5.setHgap(10);
 
+        GridPane grid6 = new GridPane();
+        grid6.setAlignment(Pos.BASELINE_LEFT);
+        grid6.setPadding(new Insets(25,25,25,25));
+        grid6.setVgap(8);
+        grid6.setHgap(10);
+
 // Main page
         Label label1= new Label("Welcome to SYNC");
         Label label2= new Label(" Bluetooth Name: ");
@@ -92,8 +98,8 @@ public class HomePage extends  Application {
         StartPage = new Button(" Login ");
         GridPane.setConstraints(StartPage,4,7);
         StartPage.setOnAction(e-> primaryStage.setScene(scene2));
-        //StartPage.setId("pagefour");
-        //StartPage.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
+        StartPage.setId("ButtonChange");
+        StartPage.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
 
         //Layout1
         grid.setId("mainpage");
@@ -106,12 +112,13 @@ public class HomePage extends  Application {
 
         button = new Button();
         GridPane.setConstraints(button,1,1);
-        //button.setId("pagefour");
-        //button.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
+        button.setId("ButtonChange2");
+        button.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         button1 = new Button(" Join A Group");
+        button1.setOnAction(e-> primaryStage.setScene(scene6));
         GridPane.setConstraints(button1,1,2);
-        //button1.setId("pagefour");
-        //button1.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
+        button1.setId("ButtonChange2");
+        button1.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         button.setText(" Create A Group");// page 3 go here which contains how to create a group and start hosting.
         button.setOnAction(e-> primaryStage.setScene(scene3));
         grid2.getChildren().addAll(button,button1);
@@ -127,6 +134,8 @@ public class HomePage extends  Application {
         label5.setId("pagefour");
         label5.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         back1= new Button("Back");
+        back1.setId("ButtonChange3");
+        back1.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         GridPane.setConstraints(back1,0,70);
         back1.setOnAction(e-> primaryStage.setScene(scene2));
         Label label3= new Label(" Group Name: ");
@@ -146,7 +155,9 @@ public class HomePage extends  Application {
         GName2.setPromptText("Optional");
         GridPane.setConstraints(GName2,1,19);
         CreateGroup = new Button(" Start Hosting ");
-        GridPane.setConstraints(CreateGroup, 20,28);
+        CreateGroup.setId("ButtonChange3");
+        CreateGroup.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
+        GridPane.setConstraints(CreateGroup, 20,20);
         CreateGroup.setOnAction(e-> primaryStage.setScene(scene4));
         //Layout3
         grid3.getChildren().addAll(back1,label3,label4,label5, CreateGroup,GName, GName2);
@@ -179,6 +190,8 @@ public class HomePage extends  Application {
 
 // TESTING OVER HERE
         addmusic= new Button("Add Music");
+        addmusic.setId("ButtonChange4");
+        addmusic.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         GridPane.setConstraints(addmusic,0,20);
         addmusic.setOnAction(e-> System.out.println(" Greg this is where it should request your code to add music"));
         label5= new Label(" Songs List");
@@ -194,6 +207,8 @@ public class HomePage extends  Application {
         SongC.setMinWidth(500);
         SongC.setCellValueFactory(new PropertyValueFactory<>("songName"));
         back1= new Button("Back");
+        back1.setId("ButtonChange4");
+        back1.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         GridPane.setConstraints(back1,0,80);
         back1.setOnAction(e-> primaryStage.setScene(scene3));
         Songtable= new TableView<>();
@@ -208,11 +223,18 @@ public class HomePage extends  Application {
         vbox.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         scene4= new Scene(vbox);
 
+//bluetooth Page
+        back1= new Button("Tap to Cancel");
+        back1.setId("Bigtext");
+        back1.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
+        GridPane.setConstraints(back1,16,43);
+        back1.setOnAction(e-> primaryStage.setScene(scene2));
+        grid6.getChildren().addAll(back1);
+        scene6= new Scene(grid6, 600,500);
+        grid6.setId("Bluetooth");
+        grid6.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
 
-
-
-
-       primaryStage.setScene(scene1);
+       primaryStage.setScene(scene6);
         primaryStage.show();
 
     }
