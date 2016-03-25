@@ -234,7 +234,7 @@ public class HomePage extends  Application {
         grid6.setId("Bluetooth");
         grid6.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
 
-       primaryStage.setScene(scene6);
+       primaryStage.setScene(scene1);
         primaryStage.show();
 
     }
