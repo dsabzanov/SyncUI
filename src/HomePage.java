@@ -233,7 +233,7 @@ public class HomePage extends  Application {
         scene6= new Scene(grid6, 600,500);
         grid6.setId("Bluetooth");
         grid6.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
-
+// Show display
        primaryStage.setScene(scene1);
         primaryStage.show();
 
