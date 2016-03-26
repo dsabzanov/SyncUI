@@ -20,10 +20,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.layout.GridPane;
 import javafx.geometry.Insets;
 
+import java.io.File;
 import java.lang.String;
 import java.util.Observable;
 
@@ -194,7 +196,27 @@ public class HomePage extends Application {
         addmusic.setId("ButtonChange4");
         addmusic.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         GridPane.setConstraints(addmusic, 0, 20);
-        addmusic.setOnAction(e -> System.out.println(" Greg this is where it should request your code to add music"));
+        //addmusic.setOnAction(e -> System.out.println(" Greg this is where it should request your code to add music"));
+
+
+        addmusic.setOnAction(new EventHandler<ActionEvent>(){
+            @Override
+            public void handle(ActionEvent arg0) {
+                FileChooser fileChooser = new FileChooser();
+                //fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));   //Optional line of code to open file chooser at home directory
+                fileChooser.getExtensionFilters().addAll(
+                        new FileChooser.ExtensionFilter("MP3 Files (.mp3)", "*.mp3"),
+                        new FileChooser.ExtensionFilter("WAV Files (.wav)", "*.wav")
+                );
+                File file = fileChooser.showOpenDialog(primaryStage);
+                System.out.println(file);
+            }
+        });
+
+
+
+
+
         label5 = new Label(" Songs List");
         label5.setId("Bigtext");
         label5.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
