@@ -86,12 +86,11 @@ public class HomePage extends Application {
         grid6.setHgap(10);
 
 // Main page
+
         Label label1 = new Label("Welcome to SYNC");
         Label label2 = new Label(" Bluetooth Name: ");
         label1.setId("Bigtext");
-        label1.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         label2.setId("pagefour");
-        label2.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         GridPane.setConstraints(label2, 0, 3);
         GridPane.setConstraints(label1, 1, 0);
         //name
@@ -102,49 +101,42 @@ public class HomePage extends Application {
         GridPane.setConstraints(StartPage, 4, 7);
         StartPage.setOnAction(e -> primaryStage.setScene(scene2));
         StartPage.setId("ButtonChange");
-        StartPage.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
 
         //Layout1
         grid.setId("mainpage");
         grid.getChildren().addAll(label1, label2, nameinput, StartPage);
-        grid.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         scene1 = new Scene(grid, 900, 900);
-
+        scene1.getStylesheets().add(HomePage.class.getResource("style.css").toExternalForm());
 
 // Next page
 
         button = new Button();
         GridPane.setConstraints(button, 1, 1);
         button.setId("ButtonChange2");
-        button.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         button1 = new Button(" Join A Group");
         button1.setOnAction(e -> primaryStage.setScene(scene6));
         GridPane.setConstraints(button1, 1, 2);
         button1.setId("ButtonChange2");
-        button1.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         button.setText(" Create A Group");// page 3 go here which contains how to create a group and start hosting.
         button.setOnAction(e -> primaryStage.setScene(scene3));
         grid2.getChildren().addAll(button, button1);
         scene2 = new Scene(grid2, 900, 800);
+        scene2.getStylesheets().add(HomePage.class.getResource("style.css").toExternalForm());
         grid2.setId("pagetwo");
-        grid2.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
 
 // Next page after clicking on create a group
 // Create Group
         System.out.println(s);
-        Label label5 = new Label("s");
+        Label label5 = new Label("Create A Group");
         GridPane.setConstraints(label5, 0, 10);
         label5.setId("pagefour");
-        label5.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         back1 = new Button("Back");
         back1.setId("ButtonChange3");
-        back1.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         GridPane.setConstraints(back1, 0, 70);
         back1.setOnAction(e -> primaryStage.setScene(scene2));
         Label label3 = new Label(" Group Name: ");
         GridPane.setConstraints(label3, 0, 15);
         label3.setId("pagefour");
-        label3.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         //name
         TextField GName = new TextField();
         GridPane.setConstraints(GName, 1, 15);
@@ -152,21 +144,19 @@ public class HomePage extends Application {
         Label label4 = new Label(" Pincode: ");
         GridPane.setConstraints(label4, 0, 19);
         label4.setId("pagefour");
-        label4.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         // text box
         TextField GName2 = new TextField();
         GName2.setPromptText("Optional");
         GridPane.setConstraints(GName2, 1, 19);
         CreateGroup = new Button(" Start Hosting ");
         CreateGroup.setId("ButtonChange3");
-        CreateGroup.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         GridPane.setConstraints(CreateGroup, 20, 20);
         CreateGroup.setOnAction(e -> primaryStage.setScene(scene4));
         //Layout3
         grid3.getChildren().addAll(back1, label3, label4, label5, CreateGroup, GName, GName2);
         scene3 = new Scene(grid3, 900, 800);
+        scene3.getStylesheets().add(HomePage.class.getResource("style.css").toExternalForm());
         grid3.setId("pagethree");
-        grid3.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
 
 //Start hosting page
 
@@ -194,7 +184,6 @@ public class HomePage extends Application {
 // TESTING OVER HERE
         addmusic = new Button("Add Music");
         addmusic.setId("ButtonChange4");
-        addmusic.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         GridPane.setConstraints(addmusic, 0, 20);
         //addmusic.setOnAction(e -> System.out.println(" Greg this is where it should request your code to add music"));
 
@@ -219,9 +208,7 @@ public class HomePage extends Application {
 
         label5 = new Label(" Songs List");
         label5.setId("Bigtext");
-        label5.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         GridPane.setConstraints(label5, 3, 1);
-        label5.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         back1 = new Button("Back");
         GridPane.setConstraints(back1, 0, 80);
         back1.setOnAction(e -> primaryStage.setScene(scene3));
@@ -231,7 +218,6 @@ public class HomePage extends Application {
         SongC.setCellValueFactory(new PropertyValueFactory<>("songName"));
         back1 = new Button("Back");
         back1.setId("ButtonChange4");
-        back1.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         GridPane.setConstraints(back1, 0, 80);
         back1.setOnAction(e -> primaryStage.setScene(scene3));
         Songtable = new TableView<>();
@@ -243,19 +229,18 @@ public class HomePage extends Application {
         vbox.setPadding(new Insets(200, 200, 200, 200));
         vbox.getChildren().addAll(label5, addmusic, Songtable, back1);
         vbox.setId("pagesix");
-        vbox.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         scene4 = new Scene(vbox);
+        scene4.getStylesheets().add(HomePage.class.getResource("style.css").toExternalForm());
 
 //bluetooth Page
         back1 = new Button("Tap to Cancel");
         back1.setId("Bigtext");
-        back1.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         GridPane.setConstraints(back1, 16, 43);
         back1.setOnAction(e -> primaryStage.setScene(scene2));
         grid6.getChildren().addAll(back1);
         scene6 = new Scene(grid6, 600, 500);
+        scene6.getStylesheets().add(HomePage.class.getResource("style.css").toExternalForm());
         grid6.setId("Bluetooth");
-        grid6.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
 // Show display
         primaryStage.setScene(scene1);
         primaryStage.show();
