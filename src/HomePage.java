@@ -160,26 +160,6 @@ public class HomePage extends Application {
 
 //Start hosting page
 
-        /*addmusic= new Button("Add Music");
-        GridPane.setConstraints(addmusic,0,0);
-        addmusic.setOnAction(e-> System.out.println(" Greg this is where it should request your code to add music"));
-        //Label label5= new Label(" Songs List");
-        //label5.setId("Bigtext");
-        //label5.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
-        //GridPane.setConstraints(label5,3,1);
-        //label5.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
-        back1= new Button("Back");
-        GridPane.setConstraints(back1,0,80);
-        back1.setOnAction(e-> primaryStage.setScene(scene3));
-
-        ViewSong= new Button("View Song List");
-        GridPane.setConstraints(ViewSong,20,40);
-        ViewSong.setOnAction(e-> primaryStage.setScene(cs));
-
-        scene4= new Scene(grid5, 900,800);
-        grid5.getChildren().addAll(back1, addmusic,ViewSong);
-        grid5.setId("pagethree");
-        grid5.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());*/
 
 // TESTING OVER HERE
         addmusic = new Button("Add Music");
