@@ -98,9 +98,8 @@ public class HomePage extends Application {
         String s = nameinput.getText();
         GridPane.setConstraints(nameinput, 1, 3);
         StartPage = new Button(" Login ");
-        GridPane.setConstraints(StartPage, 4, 7);
+        GridPane.setConstraints(StartPage, 2, 5);
         StartPage.setOnAction(e -> primaryStage.setScene(scene2));
-        StartPage.setId("ButtonChange");
 
         //Layout1
         grid.setId("mainpage");
@@ -112,11 +111,9 @@ public class HomePage extends Application {
 
         button = new Button();
         GridPane.setConstraints(button, 1, 1);
-        button.setId("ButtonChange2");
         button1 = new Button(" Join A Group");
         button1.setOnAction(e -> primaryStage.setScene(scene6));
         GridPane.setConstraints(button1, 1, 2);
-        button1.setId("ButtonChange2");
         button.setText(" Create A Group");// page 3 go here which contains how to create a group and start hosting.
         button.setOnAction(e -> primaryStage.setScene(scene3));
         grid2.getChildren().addAll(button, button1);
@@ -131,7 +128,6 @@ public class HomePage extends Application {
         GridPane.setConstraints(label5, 0, 10);
         label5.setId("pagefour");
         back1 = new Button("Back");
-        back1.setId("ButtonChange3");
         GridPane.setConstraints(back1, 0, 70);
         back1.setOnAction(e -> primaryStage.setScene(scene2));
         Label label3 = new Label(" Group Name: ");
@@ -148,8 +144,7 @@ public class HomePage extends Application {
         TextField GName2 = new TextField();
         GName2.setPromptText("Optional");
         GridPane.setConstraints(GName2, 1, 19);
-        CreateGroup = new Button(" Start Hosting ");
-        CreateGroup.setId("ButtonChange3");
+        CreateGroup = new Button(" Add Music ");
         GridPane.setConstraints(CreateGroup, 20, 20);
         CreateGroup.setOnAction(e -> primaryStage.setScene(scene4));
         //Layout3
@@ -163,7 +158,6 @@ public class HomePage extends Application {
 
 // TESTING OVER HERE
         addmusic = new Button("Add Music");
-        addmusic.setId("ButtonChange4");
         GridPane.setConstraints(addmusic, 0, 20);
         //addmusic.setOnAction(e -> System.out.println(" Greg this is where it should request your code to add music"));
 
@@ -178,7 +172,8 @@ public class HomePage extends Application {
                         new FileChooser.ExtensionFilter("WAV Files (.wav)", "*.wav")
                 );
                 File file = fileChooser.showOpenDialog(primaryStage);
-                System.out.println(file);
+                String fileName = file.getName();
+                System.out.println(fileName);
             }
         });
 
@@ -197,7 +192,6 @@ public class HomePage extends Application {
         SongC.setMinWidth(500);
         SongC.setCellValueFactory(new PropertyValueFactory<>("songName"));
         back1 = new Button("Back");
-        back1.setId("ButtonChange4");
         GridPane.setConstraints(back1, 0, 80);
         back1.setOnAction(e -> primaryStage.setScene(scene3));
         Songtable = new TableView<>();
@@ -214,7 +208,6 @@ public class HomePage extends Application {
 
 //bluetooth Page
         back1 = new Button("Tap to Cancel");
-        back1.setId("Bigtext");
         GridPane.setConstraints(back1, 16, 43);
         back1.setOnAction(e -> primaryStage.setScene(scene2));
         grid6.getChildren().addAll(back1);
