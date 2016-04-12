@@ -21,10 +21,10 @@ public class OptionsPage extends Page {
         Button button = new Button();
         GridPane.setConstraints(button, 1, 1);
         Button button1 = new Button(" Join A Group");
-        button1.setOnAction(e -> primaryStage.setScene(scene6));
+        button1.setOnAction(e -> primaryStage.setScene(new BTAnimationPage(primaryStage)));
         GridPane.setConstraints(button1, 1, 2);
         button.setText(" Create A Group");// page 3 go here which contains how to create a group and start hosting.
-        button.setOnAction(e -> primaryStage.setScene(scene3));
+        button.setOnAction(e -> primaryStage.setScene(new CreateGroupPage(primaryStage)));
         pane.getChildren().addAll(button, button1);
         pane.setId("pagetwo");
 

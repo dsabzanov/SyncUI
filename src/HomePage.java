@@ -57,13 +57,15 @@ public class HomePage extends Application {
         grid.setHgap(8);
         */
 
+        /*
         GridPane grid2 = new GridPane();
         grid2.setAlignment(Pos.CENTER);
         grid2.setPadding(new Insets(25, 25, 25, 25));
         grid2.setVgap(10);
         grid2.setHgap(10);
+        */
 
-        GridPane grid3 = new GridPane();
+        /*GridPane grid3 = new GridPane();
         grid3.setAlignment(Pos.CENTER);
         grid3.setPadding(new Insets(25, 25, 25, 25));
         grid3.setVgap(8);
@@ -85,7 +87,7 @@ public class HomePage extends Application {
         grid6.setAlignment(Pos.BASELINE_LEFT);
         grid6.setPadding(new Insets(25, 25, 25, 25));
         grid6.setVgap(8);
-        grid6.setHgap(10);
+        grid6.setHgap(10);*/
 
 // Main page
 
@@ -113,6 +115,7 @@ public class HomePage extends Application {
 
 // Next page
 
+        /*
         button = new Button();
         GridPane.setConstraints(button, 1, 1);
         button1 = new Button(" Join A Group");
@@ -124,10 +127,11 @@ public class HomePage extends Application {
         scene2 = new Scene(grid2, 900, 800);
         scene2.getStylesheets().add(HomePage.class.getResource("style.css").toExternalForm());
         grid2.setId("pagetwo");
+        */
 
 // Next page after clicking on create a group
 // Create Group
-        System.out.println("");
+       /* System.out.println("");
         Label label5 = new Label("Create A Group");
         GridPane.setConstraints(label5, 0, 10);
         label5.setId("pagefour");
@@ -155,13 +159,13 @@ public class HomePage extends Application {
         grid3.getChildren().addAll(back1, label3, label4, label5, CreateGroup, GName, GName2);
         scene3 = new Scene(grid3, 900, 800);
         scene3.getStylesheets().add(HomePage.class.getResource("style.css").toExternalForm());
-        grid3.setId("pagethree");
+        grid3.setId("pagethree");*/
 
 //Start hosting page
 
 
 // TESTING OVER HERE
-        addmusic = new Button("Add Music");
+        /*addmusic = new Button("Add Music");
         GridPane.setConstraints(addmusic, 0, 20);
         //addmusic.setOnAction(e -> System.out.println(" Greg this is where it should request your code to add music"));
 
@@ -208,23 +212,24 @@ public class HomePage extends Application {
         vbox.getChildren().addAll(label5, addmusic, Songtable, back1);
         vbox.setId("pagesix");
         scene4 = new Scene(vbox);
-        scene4.getStylesheets().add(HomePage.class.getResource("style.css").toExternalForm());
+        scene4.getStylesheets().add(HomePage.class.getResource("style.css").toExternalForm());*/
+
 
 //bluetooth Page
-        back1 = new Button("Tap to Cancel");
+        /*back1 = new Button("Tap to Cancel");
         GridPane.setConstraints(back1, 16, 43);
         back1.setOnAction(e -> primaryStage.setScene(scene2));
         grid6.getChildren().addAll(back1);
         scene6 = new Scene(grid6, 600, 500);
         scene6.getStylesheets().add(HomePage.class.getResource("style.css").toExternalForm());
-        grid6.setId("Bluetooth");
+        grid6.setId("Bluetooth");*/
 // Show display
         primaryStage.setScene(new MainPage(primaryStage));
         primaryStage.show();
 
     }
 
-    public ObservableList<DisplaySongs4host> getSong() {
+    /*public ObservableList<DisplaySongs4host> getSong() {
         ObservableList<DisplaySongs4host> Songs = FXCollections.observableArrayList();
         Songs.add(new DisplaySongs4host("I hate Exams"));
         Songs.add(new DisplaySongs4host("I "));
@@ -232,7 +237,7 @@ public class HomePage extends Application {
         Songs.add(new DisplaySongs4host("hate "));
         return Songs;
 
-    }
+    }*/
 
 }
 
