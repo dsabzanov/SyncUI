@@ -1,4 +1,5 @@
 import javafx.geometry.Pos;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -17,18 +18,38 @@ public class OptionsPage extends Page {
 
     private void buildUI() {
         pane.setAlignment(Pos.CENTER);
+        pane.setPadding(new Insets(25, 25, 25, 25));
+        pane.setVgap(10);
+        pane.setHgap(10);
 
-        Button button = new Button();
-        GridPane.setConstraints(button, 1, 1);
-        Button button1 = new Button(" Join A Group");
-        button1.setOnAction(e -> primaryStage.setScene(new BTAnimationPage(primaryStage)));
-        GridPane.setConstraints(button1, 1, 2);
-        button.setText(" Create A Group");// page 3 go here which contains how to create a group and start hosting.
-        button.setOnAction(e -> primaryStage.setScene(new CreateGroupPage(primaryStage)));
-        pane.getChildren().addAll(button, button1);
+
+
+        Button createAGroupButton = new Button(" Create A Group");
+        GridPane.setConstraints(createAGroupButton, 0, 0);
+
+        createAGroupButton.setOnAction(e -> {
+            primaryStage.hide();
+            primaryStage.setScene(new CreateGroupPage(primaryStage));
+            primaryStage.show();
+        });
+
+
+
+
+        Button joinAGroupButton = new Button(" Join A Group");
+        GridPane.setConstraints(joinAGroupButton, 0, 1);
+
+        joinAGroupButton.setOnAction(e -> {
+            primaryStage.hide();
+            primaryStage.setScene(new BTAnimationPage(primaryStage));
+            primaryStage.show();
+        });
+
+
+
+
+        pane.getChildren().addAll(createAGroupButton, joinAGroupButton);
         pane.setId("pagetwo");
-
-
     }
 
     @Override

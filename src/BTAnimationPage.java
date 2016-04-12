@@ -13,12 +13,13 @@ public class BTAnimationPage extends Page {
     }
 
     private void buildUI() {
-        pane.setAlignment(Pos.BASELINE_LEFT);
+        pane.setAlignment(Pos.CENTER);
 
-        Button back1 = new Button("Tap to Cancel");
-        GridPane.setConstraints(back1, 16, 43);
-        back1.setOnAction(e -> prevPage());
-        pane.getChildren().addAll(back1);
+        Button backButton = new Button("Tap to Cancel");
+        GridPane.setConstraints(backButton, 16, 43);
+        backButton.setOnAction(e -> prevPage());
+
+        pane.getChildren().addAll(backButton);
         pane.setId("Bluetooth");
     }
 
@@ -29,6 +30,8 @@ public class BTAnimationPage extends Page {
 
     @Override
     public void prevPage() {
+        primaryStage.hide();
         primaryStage.setScene(new OptionsPage(primaryStage));
+        primaryStage.show();
     }
 }

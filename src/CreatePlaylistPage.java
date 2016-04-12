@@ -3,6 +3,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -28,12 +29,35 @@ public class CreatePlaylistPage extends Page {
     }
 
     private void buildUI() {
-        Button addmusic = new Button("Add Music");
-        GridPane.setConstraints(addmusic, 0, 20);
-        //addmusic.setOnAction(e -> System.out.println(" Greg this is where it should request your code to add music"));
+        pane.setAlignment(Pos.CENTER);
+
+        Button addMusicButton = new Button("Add Music");
+        GridPane.setConstraints(addMusicButton, 1, 5);
 
 
-        addmusic.setOnAction(new EventHandler<ActionEvent>(){
+        Label songListLabel = new Label(" Songs List");
+        GridPane.setConstraints(songListLabel, 0, 0);
+        songListLabel.setId("Bigtext");
+
+
+        Button backButton = new Button("Back");
+        GridPane.setConstraints(backButton, 0, 5);
+        backButton.setOnAction(e -> prevPage());
+
+        TableColumn<DisplaySongs4host, String> SongColumn = new TableColumn<>("Songs");
+        SongColumn.setMinWidth(500);
+        SongColumn.setCellValueFactory(new PropertyValueFactory<>("songName"));
+        TableView<DisplaySongs4host> SongTable = new TableView<>();
+        SongTable.setItems(getSong());
+        SongTable.getColumns().addAll(SongColumn);
+        GridPane.setConstraints(SongTable, 0, 2);
+
+        //VBox vbox = new VBox();
+        //vbpane.setSpacing(15);
+        //vbox.setPadding(new Insets(200, 200, 200, 200));
+
+
+        addMusicButton.setOnAction(new EventHandler<ActionEvent>(){
             @Override
             public void handle(ActionEvent arg0) {
                 FileChooser fileChooser = new FileChooser();
@@ -44,46 +68,22 @@ public class CreatePlaylistPage extends Page {
                 );
                 File file = fileChooser.showOpenDialog(primaryStage);
                 String fileName = file.getName();
+                SongTable.getItems().add(new DisplaySongs4host(fileName));
                 System.out.println(fileName);
             }
         });
 
 
 
+        pane.getChildren().addAll(songListLabel, addMusicButton, SongTable, backButton);
+        pane.setId("pagesix");
+        //scene4 = new Scene(vbox);
 
-
-        Label label5 = new Label(" Songs List");
-        label5.setId("Bigtext");
-        GridPane.setConstraints(label5, 3, 1);
-        Button back1 = new Button("Back");
-        GridPane.setConstraints(back1, 0, 80);
-        back1.setOnAction(e -> prevPage());
-
-        TableColumn<DisplaySongs4host, String> SongC = new TableColumn<>("Songs");
-        SongC.setMinWidth(500);
-        SongC.setCellValueFactory(new PropertyValueFactory<>("songName"));
-        back1 = new Button("Back");
-        GridPane.setConstraints(back1, 0, 80);
-        back1.setOnAction(e -> prevPage());
-        TableView<DisplaySongs4host> Songtable = new TableView<>();
-        Songtable.setItems(getSong());
-        Songtable.getColumns().addAll(SongC);
-        GridPane.setConstraints(Songtable, 1, 15);
-        VBox vbox = new VBox();
-        vbox.setSpacing(15);
-        vbox.setPadding(new Insets(200, 200, 200, 200));
-        vbox.getChildren().addAll(label5, addmusic, Songtable, back1);
-        vbox.setId("pagesix");
-        scene4 = new Scene(vbox);
     }
 
 
     public ObservableList<DisplaySongs4host> getSong() {
         ObservableList<DisplaySongs4host> Songs = FXCollections.observableArrayList();
-        Songs.add(new DisplaySongs4host("I hate Exams"));
-        Songs.add(new DisplaySongs4host("I "));
-        Songs.add(new DisplaySongs4host("Exams"));
-        Songs.add(new DisplaySongs4host("hate "));
         return Songs;
 
     }
@@ -95,6 +95,8 @@ public class CreatePlaylistPage extends Page {
 
     @Override
     public void prevPage() {
+        primaryStage.hide();
         primaryStage.setScene(new CreateGroupPage(primaryStage));
+        primaryStage.show();
     }
 }

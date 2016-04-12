@@ -1,4 +1,5 @@
 import javafx.geometry.Pos;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -17,44 +18,51 @@ public class CreateGroupPage extends Page {
 
     private void buildUI() {
         pane.setAlignment(Pos.CENTER);
-        pane.setVgap(8);
+        //pane.setPadding(new Insets(25, 25, 25, 25));
+        pane.setVgap(5);
+        //pane.setHgap(10);
 
-        System.out.println("");
-        Label label5 = new Label("Create A Group");
-        GridPane.setConstraints(label5, 0, 10);
-        label5.setId("pagefour");
-        Button back1 = new Button("Back");
-        GridPane.setConstraints(back1, 0, 70);
-        back1.setOnAction(e -> prevPage());
-        Label label3 = new Label(" Group Name: ");
-        GridPane.setConstraints(label3, 0, 15);
-        label3.setId("pagefour");
+        Label createGroupLabel = new Label("Create A Group");
+        GridPane.setConstraints(createGroupLabel, 0, 0);
+        createGroupLabel.setId("pagefour");
+        Button backButton = new Button("Back");
+        GridPane.setConstraints(backButton, 0, 3);
+        backButton.setOnAction(e -> prevPage());
+
+        Label groupNameLabel = new Label(" Group Name: ");
+        GridPane.setConstraints(groupNameLabel, 0, 1);
+        groupNameLabel.setId("pagefour");
+
         //name
-        TextField GName = new TextField();
-        GridPane.setConstraints(GName, 1, 15);
+        TextField groupNameTextField = new TextField();
+        GridPane.setConstraints(groupNameTextField, 1, 1);
         // pincode label
-        Label label4 = new Label(" Pincode: ");
-        GridPane.setConstraints(label4, 0, 19);
-        label4.setId("pagefour");
+        Label pincodeLabel = new Label(" Pincode: ");
+        GridPane.setConstraints(pincodeLabel, 0, 2);
+        pincodeLabel.setId("pagefour");
         // text box
-        TextField GName2 = new TextField();
-        GName2.setPromptText("Optional");
-        GridPane.setConstraints(GName2, 1, 19);
-        Button CreateGroup = new Button(" Add Music ");
-        GridPane.setConstraints(CreateGroup, 20, 20);
-        CreateGroup.setOnAction(e -> nextPage());
+        TextField pincodeTextField = new TextField();
+        pincodeTextField.setPromptText("Optional");
+        GridPane.setConstraints(pincodeTextField, 1, 2);
+        Button addMusicButton = new Button(" Add Music ");
+        GridPane.setConstraints(addMusicButton, 3, 3);
+        addMusicButton.setOnAction(e -> nextPage());
         //Layout3
-        pane.getChildren().addAll(back1, label3, label4, label5, CreateGroup, GName, GName2);
+        pane.getChildren().addAll(backButton, groupNameLabel, pincodeLabel, createGroupLabel, addMusicButton, groupNameTextField, pincodeTextField);
         pane.setId("pagethree");
     }
 
     @Override
     public void nextPage() {
+        primaryStage.hide();
         primaryStage.setScene(new CreatePlaylistPage(primaryStage));
+        primaryStage.show();
     }
 
     @Override
     public void prevPage() {
+        primaryStage.hide();
         primaryStage.setScene(new OptionsPage(primaryStage));
+        primaryStage.show();
     }
 }

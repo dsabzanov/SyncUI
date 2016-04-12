@@ -16,9 +16,10 @@ abstract public class Page extends Scene {
         pane = (GridPane) this.getRoot();
         this.primaryStage = primaryStage;
         this.getStylesheets().add(CSS_STYLE);
-        pane.setPadding(new Insets(25, 25, 25, 25));
-        pane.setVgap(10);
-        pane.setHgap(10);
+        pane.setGridLinesVisible(true);
+        //pane.setPadding(new Insets(25, 25, 25, 25));
+        //pane.setVgap(10);
+        //pane.setHgap(10);
     }
 
     public abstract void nextPage();
