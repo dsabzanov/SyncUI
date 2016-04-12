@@ -7,13 +7,18 @@ import javafx.stage.Stage;
  * Created by gregl on 4/11/2016.
  */
 abstract public class Page extends Scene {
-    private GridPane pane;
+    protected static final String CSS_STYLE = Page.class.getResource("style.css").toExternalForm();
+    protected GridPane pane;
     protected Stage primaryStage;
 
     public Page(Stage primaryStage) {
         super(new GridPane(), 900, 900);
         pane = (GridPane) this.getRoot();
         this.primaryStage = primaryStage;
+        this.getStylesheets().add(CSS_STYLE);
+        pane.setPadding(new Insets(25, 25, 25, 25));
+        pane.setVgap(10);
+        pane.setHgap(10);
     }
 
     public abstract void nextPage();

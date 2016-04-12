@@ -49,11 +49,13 @@ public class HomePage extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Sync 1.0");
 
+        /*
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setPadding(new Insets(10, 10, 10, 10));
         grid.setVgap(10);
         grid.setHgap(8);
+        */
 
         GridPane grid2 = new GridPane();
         grid2.setAlignment(Pos.CENTER);
@@ -87,6 +89,7 @@ public class HomePage extends Application {
 
 // Main page
 
+/*
         Label label1 = new Label("Welcome to SYNC");
         Label label2 = new Label(" Bluetooth Name: ");
         label1.setId("Bigtext");
@@ -106,6 +109,7 @@ public class HomePage extends Application {
         grid.getChildren().addAll(label1, label2, nameinput, StartPage);
         scene1 = new Scene(grid, 900, 900);
         scene1.getStylesheets().add(HomePage.class.getResource("style.css").toExternalForm());
+*/
 
 // Next page
 
@@ -123,7 +127,7 @@ public class HomePage extends Application {
 
 // Next page after clicking on create a group
 // Create Group
-        System.out.println(s);
+        System.out.println("");
         Label label5 = new Label("Create A Group");
         GridPane.setConstraints(label5, 0, 10);
         label5.setId("pagefour");
@@ -215,7 +219,7 @@ public class HomePage extends Application {
         scene6.getStylesheets().add(HomePage.class.getResource("style.css").toExternalForm());
         grid6.setId("Bluetooth");
 // Show display
-        primaryStage.setScene(scene1);
+        primaryStage.setScene(new MainPage(primaryStage));
         primaryStage.show();
 
     }
