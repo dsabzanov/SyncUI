@@ -18,6 +18,7 @@ class MainPage extends Page {
     private void buildUI() {
         pane.setAlignment(Pos.CENTER);
 
+        // Davey jones
 
         Label label1 = new Label("Welcome to SYNC");
         Label label2 = new Label(" Bluetooth Name: ");
