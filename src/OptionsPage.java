@@ -14,6 +14,7 @@ public class OptionsPage extends Page {
     public OptionsPage(Stage primaryStage) {
         super(primaryStage);
         buildUI();
+
     }
 
 
