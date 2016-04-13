@@ -18,9 +18,11 @@ class MainPage extends Page {
     private void buildUI() {
         pane.setAlignment(Pos.CENTER);
 
+
         Label label1 = new Label("Welcome to SYNC");
         Label label2 = new Label(" Bluetooth Name: ");
         label1.setId("Bigtext");
+
         label2.setId("pagefour");
         GridPane.setConstraints(label2, 0, 3);
         GridPane.setConstraints(label1, 1, 0);

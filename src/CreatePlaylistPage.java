@@ -57,7 +57,7 @@ public class CreatePlaylistPage extends Page {
         //vbox.setPadding(new Insets(200, 200, 200, 200));
 
 
-        addMusicButton.setOnAction(new EventHandler<ActionEvent>(){
+        addMusicButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent arg0) {
                 FileChooser fileChooser = new FileChooser();
@@ -67,12 +67,13 @@ public class CreatePlaylistPage extends Page {
                         new FileChooser.ExtensionFilter("WAV Files (.wav)", "*.wav")
                 );
                 File file = fileChooser.showOpenDialog(primaryStage);
-                String fileName = file.getName();
-                SongTable.getItems().add(new DisplaySongs4host(fileName));
-                System.out.println(fileName);
+                if (file != null) {
+                    String fileName = file.getName();
+                    SongTable.getItems().add(new DisplaySongs4host(fileName));
+                    System.out.println(fileName);
+                }
             }
         });
-
 
 
         pane.getChildren().addAll(songListLabel, addMusicButton, SongTable, backButton);
