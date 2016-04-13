@@ -17,39 +17,47 @@ public class CreateGroupPage extends Page {
     }
 
     private void buildUI() {
+        pane.setId("pagethree");
         pane.setAlignment(Pos.CENTER);
-        //pane.setPadding(new Insets(25, 25, 25, 25));
         pane.setVgap(5);
+        //pane.setPadding(new Insets(25, 25, 25, 25));
         //pane.setHgap(10);
 
+        // Build UI Components
         Label createGroupLabel = new Label("Create A Group");
-        GridPane.setConstraints(createGroupLabel, 0, 0);
         createGroupLabel.setId("pagefour");
-        Button backButton = new Button("Back");
-        GridPane.setConstraints(backButton, 0, 3);
-        backButton.setOnAction(e -> prevPage());
 
         Label groupNameLabel = new Label(" Group Name: ");
-        GridPane.setConstraints(groupNameLabel, 0, 1);
         groupNameLabel.setId("pagefour");
 
-        //name
         TextField groupNameTextField = new TextField();
-        GridPane.setConstraints(groupNameTextField, 1, 1);
-        // pincode label
+
         Label pincodeLabel = new Label(" Pincode: ");
-        GridPane.setConstraints(pincodeLabel, 0, 2);
         pincodeLabel.setId("pagefour");
-        // text box
+
         TextField pincodeTextField = new TextField();
         pincodeTextField.setPromptText("Optional");
-        GridPane.setConstraints(pincodeTextField, 1, 2);
+
+        Button backButton = new Button("Back");
+        backButton.setOnAction(e -> prevPage());
+
         Button addMusicButton = new Button(" Add Music ");
-        GridPane.setConstraints(addMusicButton, 3, 3);
         addMusicButton.setOnAction(e -> nextPage());
-        //Layout3
+
+        // Set location of components in GridPane
+        GridPane.setConstraints(createGroupLabel, 0, 0);
+
+        GridPane.setConstraints(groupNameLabel, 0, 1);
+        GridPane.setConstraints(groupNameTextField, 1, 1);
+
+        GridPane.setConstraints(pincodeLabel, 0, 2);
+        GridPane.setConstraints(pincodeTextField, 1, 2);
+
+        GridPane.setConstraints(backButton, 0, 3);
+        GridPane.setConstraints(addMusicButton, 3, 3);
+
+        // Add components into GridPane
         pane.getChildren().addAll(backButton, groupNameLabel, pincodeLabel, createGroupLabel, addMusicButton, groupNameTextField, pincodeTextField);
-        pane.setId("pagethree");
     }
 
     @Override
