@@ -30,8 +30,6 @@ public class BTAnimationPage extends Page {
 
     @Override
     public void prevPage() {
-        primaryStage.hide();
         primaryStage.setScene(new OptionsPage(primaryStage));
-        primaryStage.show();
     }
 }

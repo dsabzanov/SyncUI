@@ -62,15 +62,11 @@ public class CreateGroupPage extends Page {
 
     @Override
     public void nextPage() {
-        primaryStage.hide();
         primaryStage.setScene(new CreatePlaylistPage(primaryStage));
-        primaryStage.show();
     }
 
     @Override
     public void prevPage() {
-        primaryStage.hide();
         primaryStage.setScene(new OptionsPage(primaryStage));
-        primaryStage.show();
     }
 }

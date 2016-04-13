@@ -95,8 +95,6 @@ public class CreatePlaylistPage extends Page {
 
     @Override
     public void prevPage() {
-        primaryStage.hide();
         primaryStage.setScene(new CreateGroupPage(primaryStage));
-        primaryStage.show();
     }
 }

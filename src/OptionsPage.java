@@ -23,29 +23,20 @@ public class OptionsPage extends Page {
         pane.setHgap(10);
 
 
-
         Button createAGroupButton = new Button(" Create A Group");
         GridPane.setConstraints(createAGroupButton, 0, 0);
 
         createAGroupButton.setOnAction(e -> {
-            primaryStage.hide();
             primaryStage.setScene(new CreateGroupPage(primaryStage));
-            primaryStage.show();
         });
-
-
 
 
         Button joinAGroupButton = new Button(" Join A Group");
         GridPane.setConstraints(joinAGroupButton, 0, 1);
 
         joinAGroupButton.setOnAction(e -> {
-            primaryStage.hide();
             primaryStage.setScene(new BTAnimationPage(primaryStage));
-            primaryStage.show();
         });
-
-
 
 
         pane.getChildren().addAll(createAGroupButton, joinAGroupButton);
