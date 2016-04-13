@@ -8,9 +8,9 @@ import javafx.stage.Stage;
 /**
  * Created by davidsabzanov on 4/11/16.
  */
-class MainPage extends Page {
+class MainPagee extends Page {
 
-    public MainPage(Stage primaryStage) {
+    public MainPagee(Stage primaryStage) {
         super(primaryStage);
         buildUI();
     }
