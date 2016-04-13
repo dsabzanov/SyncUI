@@ -30,7 +30,7 @@
 #Bluetooth{
     -fx-background-image: url("02.gif");
     -fx-background-repeat: stretch;
-    -fx-background-size: 600 500;
+    -fx-background-size: 700 600;
     -fx-background-position: center center;
     -fx-effect: dropshadow(three-pass-box, black, 30, 1.5, 1, 1);
     fx-font-size: 80px;

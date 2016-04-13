@@ -12,7 +12,7 @@ abstract public class Page extends Scene {
     protected Stage primaryStage;
 
     public Page(Stage primaryStage) {
-        super(new GridPane(), 800, 700);
+        super(new GridPane(), 900, 800);
         pane = (GridPane) this.getRoot();
         this.primaryStage = primaryStage;
         this.getStylesheets().add(CSS_STYLE);

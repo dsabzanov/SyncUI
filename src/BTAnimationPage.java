@@ -16,7 +16,7 @@ public class BTAnimationPage extends Page {
         pane.setAlignment(Pos.CENTER);
 
         Button backButton = new Button("Tap to Cancel");
-        GridPane.setConstraints(backButton, 16, 43);
+        GridPane.setConstraints(backButton, 16, 1293);
         backButton.setOnAction(e -> prevPage());
 
         pane.getChildren().addAll(backButton);
