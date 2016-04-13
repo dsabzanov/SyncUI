@@ -1,6 +1,5 @@
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.SceneAntialiasing;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -13,7 +12,7 @@ abstract public class Page extends Scene {
     protected Stage primaryStage;
 
     public Page(Stage primaryStage) {
-        super(new GridPane(), 900, 900, true, SceneAntialiasing.DISABLED);
+        super(new GridPane(), 800, 700);
         pane = (GridPane) this.getRoot();
         this.primaryStage = primaryStage;
         this.getStylesheets().add(CSS_STYLE);
