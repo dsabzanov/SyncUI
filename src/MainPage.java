@@ -29,6 +29,8 @@ class MainPage extends Page {
         //name
         TextField nameinput = new TextField();
         String s = nameinput.getText();
+
+
         GridPane.setConstraints(nameinput, 1, 3);
         Button loginBtn = new Button(" Login ");
         GridPane.setConstraints(loginBtn, 2, 5);
