@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 /**
  * Created by davidsabzanov on 4/11/16.
  */
-public class MainPage extends Page {
+class MainPage extends Page {
 
     public MainPage(Stage primaryStage) {
         super(primaryStage);

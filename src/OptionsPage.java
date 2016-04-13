@@ -1,5 +1,6 @@
 import javafx.geometry.Pos;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -19,7 +20,7 @@ public class OptionsPage extends Page {
     private void buildUI() {
         pane.setAlignment(Pos.CENTER);
         pane.setPadding(new Insets(25, 25, 25, 25));
-        pane.setVgap(10);
+        pane.setVgap(8);
         pane.setHgap(10);
 
 
