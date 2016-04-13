@@ -20,7 +20,7 @@ public class HomePage extends Application {
     Button StartPage, addmusic;
     Button ViewSong;
     Scene scene1, scene2, scene3, scene4, scene5, scene6;
-    TableView<DisplaySongs4host> Songtable;
+    TableView<DisplaySongs4host> Songtable; // delete
 
     public static void main(String args[]) {
         launch(args);

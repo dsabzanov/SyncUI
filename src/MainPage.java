@@ -19,6 +19,7 @@ class MainPage extends Page {
         pane.setAlignment(Pos.CENTER);
 
         // Davey jones
+        // Balls
 
         Label label1 = new Label("Welcome to SYNC");
         Label label2 = new Label(" Bluetooth Name: ");
@@ -38,6 +39,7 @@ class MainPage extends Page {
         loginBtn.setOnAction(e -> nextPage());
         pane.setId("mainpage");
         pane.getChildren().addAll(label1, label2, nameinput, loginBtn);
+        // Changes
     }
 
     @Override
