@@ -29,7 +29,7 @@ public class HostListPage extends Page {
     }
 
     private void buildUI() {
-        pane.setAlignment(Pos.CENTER);
+        pane.setAlignment(Pos.BASELINE_CENTER);
 
         Button addMusicButton = new Button("Add Music");
         GridPane.setConstraints(addMusicButton, 1, 5);
