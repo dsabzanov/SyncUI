@@ -16,23 +16,35 @@ public class MainPage extends Page {
     }
 
     private void buildUI() {
+        pane.setId("mainpage");
         pane.setAlignment(Pos.CENTER);
 
-        Label label1 = new Label("Welcome to SYNC");
-        Label label2 = new Label(" Bluetooth Name: ");
-        label1.setId("Bigtext");
-        label2.setId("pagefour");
-        GridPane.setConstraints(label2, 0, 3);
-        GridPane.setConstraints(label1, 1, 0);
-        //name
-        TextField nameinput = new TextField();
-        String s = nameinput.getText();
-        GridPane.setConstraints(nameinput, 1, 3);
-        Button loginBtn = new Button(" Login ");
-        GridPane.setConstraints(loginBtn, 2, 5);
-        loginBtn.setOnAction(e -> nextPage());
-        pane.setId("mainpage");
-        pane.getChildren().addAll(label1, label2, nameinput, loginBtn);
+        // Build UI Components
+        Label welcomeLabel = new Label("Welcome to SYNC");
+        welcomeLabel.setId("Bigtext");
+
+        Label bluetoothNameLabel = new Label(" Bluetooth Name: ");
+        bluetoothNameLabel.setId("pagefour");
+
+        TextField bluetoothNameTextField = new TextField();
+        String s = bluetoothNameTextField.getText();
+
+        Button loginButton = new Button(" Login ");
+        loginButton.setOnAction(e -> nextPage());
+
+
+        // Set location of components in GridPane
+        GridPane.setConstraints(bluetoothNameLabel, 0, 3);
+
+        GridPane.setConstraints(welcomeLabel, 1, 0);
+
+        GridPane.setConstraints(bluetoothNameTextField, 1, 3);
+
+        GridPane.setConstraints(loginButton, 2, 5);
+
+
+        // Add components into GridPane
+        pane.getChildren().addAll(welcomeLabel, bluetoothNameLabel, bluetoothNameTextField, loginButton);
     }
 
     @Override

@@ -28,60 +28,15 @@ public class CreatePlaylistPage extends Page {
     }
 
     private void buildUI() {
-        pane.setAlignment(Pos.CENTER);  //Alignment of GridPane set to CENTER
+        pane.setId("pagesix");
+        pane.setAlignment(Pos.CENTER);
 
 
-        //Song List label
+        // Build UI Components
         Label songListLabel = new Label(" Songs List");
-        GridPane.setConstraints(songListLabel, 0, 0);
         songListLabel.setId("Bigtext");
 
-
-        //Add Music button
         Button addMusicButton = new Button("Add Music");
-        GridPane.setConstraints(addMusicButton, 1, 0);
-
-
-        //Delete Music button
-        Button deleteMusicButton = new Button("Delete Song");
-        GridPane.setConstraints(deleteMusicButton, 1, 5);
-        deleteMusicButton.setOnAction(e -> deleteSong());
-
-
-        //Back button
-        Button backButton = new Button("Back");
-        GridPane.setConstraints(backButton, 0, 5);
-        backButton.setOnAction(e -> prevPage());
-
-
-        //Table Column
-        TableColumn<DisplaySongs4host, String> SongColumn = new TableColumn<>("Songs");
-        SongColumn.setMinWidth(500);
-        SongColumn.setCellValueFactory(new PropertyValueFactory<>("songName"));
-
-
-        //Table View
-        SongTable.setItems(getSong());
-        SongTable.getColumns().add(SongColumn);
-        GridPane.setConstraints(SongTable, 0, 2);
-
-
-        //Row Mouse Click Event
-        SongTable.setRowFactory(e -> {
-            TableRow<DisplaySongs4host> row = new TableRow<>();
-            row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && (! row.isEmpty())) {
-                    DisplaySongs4host rowData = row.getItem();
-                    System.out.println("Selected: " + rowData.getSongName());
-                }
-            });
-            return row;
-        });
-
-
-
-
-
         addMusicButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent arg0) {
@@ -101,10 +56,52 @@ public class CreatePlaylistPage extends Page {
             }
         });
 
+        Button deleteMusicButton = new Button("Delete Song");
+        deleteMusicButton.setOnAction(e -> deleteSong());
+
+        Button backButton = new Button("Back");
+        backButton.setOnAction(e -> prevPage());
 
 
+
+        TableColumn<DisplaySongs4host, String> SongColumn = new TableColumn<>("Songs");
+        SongColumn.setMinWidth(500);
+        SongColumn.setCellValueFactory(new PropertyValueFactory<>("songName"));
+
+
+        SongTable.setItems(getSong());
+        SongTable.getColumns().add(SongColumn);
+
+
+            //Row Mouse Click Event
+        SongTable.setRowFactory(e -> {
+            TableRow<DisplaySongs4host> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (! row.isEmpty())) {
+                    DisplaySongs4host rowData = row.getItem();
+                    System.out.println("Selected: " + rowData.getSongName());
+                }
+            });
+            return row;
+        });
+
+
+
+
+        // Set location of components in GridPane
+        GridPane.setConstraints(songListLabel, 0, 0);
+
+        GridPane.setConstraints(addMusicButton, 1, 0);
+
+        GridPane.setConstraints(deleteMusicButton, 1, 5);
+
+        GridPane.setConstraints(backButton, 0, 5);
+
+        GridPane.setConstraints(SongTable, 0, 2);
+
+
+        // Add components into GridPane
         pane.getChildren().addAll(songListLabel, addMusicButton, SongTable, backButton, deleteMusicButton);
-        pane.setId("pagesix");
     }
 
 

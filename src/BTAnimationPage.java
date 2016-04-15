@@ -13,14 +13,22 @@ public class BTAnimationPage extends Page {
     }
 
     private void buildUI() {
+        pane.setId("Bluetooth");
         pane.setAlignment(Pos.CENTER);
 
+
+        // Build UI Components
         Button backButton = new Button("Tap to Cancel");
-        GridPane.setConstraints(backButton, 16, 1293);
         backButton.setOnAction(e -> prevPage());
 
+
+        // Set location of components in GridPane
+        GridPane.setConstraints(backButton, 16, 1293);
+
+
+
+        // Add components into GridPane
         pane.getChildren().addAll(backButton);
-        pane.setId("Bluetooth");
     }
 
     @Override

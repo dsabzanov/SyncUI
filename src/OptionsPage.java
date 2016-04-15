@@ -19,30 +19,35 @@ public class OptionsPage extends Page {
 
 
     private void buildUI() {
+        pane.setId("pagetwo");
         pane.setAlignment(Pos.CENTER);
         pane.setPadding(new Insets(25, 25, 25, 25));
         pane.setVgap(8);
         pane.setHgap(10);
 
 
+        // Build UI Components
         Button createAGroupButton = new Button(" Create A Group");
-        GridPane.setConstraints(createAGroupButton, 0, 0);
-
         createAGroupButton.setOnAction(e -> {
             primaryStage.setScene(new CreateGroupPage(primaryStage));
         });
 
 
         Button joinAGroupButton = new Button(" Join A Group");
-        GridPane.setConstraints(joinAGroupButton, 0, 1);
-
         joinAGroupButton.setOnAction(e -> {
             primaryStage.setScene(new BTAnimationPage(primaryStage));
         });
 
 
+
+        // Set location of components in GridPane
+        GridPane.setConstraints(createAGroupButton, 0, 0);
+
+        GridPane.setConstraints(joinAGroupButton, 0, 1);
+
+
+        // Add components into GridPane
         pane.getChildren().addAll(createAGroupButton, joinAGroupButton);
-        pane.setId("pagetwo");
     }
 
     @Override

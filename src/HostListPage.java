@@ -9,10 +9,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -23,54 +20,70 @@ import java.io.File;
 
 public class HostListPage extends Page {
 
+    private TableView<DisplayHosts4Client> HostsTable = new TableView<>(); //TableView Declared
+
     public HostListPage(Stage primaryStage) {
         super(primaryStage);
         buildUI();
     }
 
     private void buildUI() {
+        pane.setId("pagesix");
         pane.setAlignment(Pos.CENTER);
-
-        Button addMusicButton = new Button("Add Music");
-        GridPane.setConstraints(addMusicButton, 1, 5);
+        pane.setVgap(10);
 
 
-        Label songListLabel = new Label(" Songs List");
-        GridPane.setConstraints(songListLabel, 0, 0);
+
+        // Build UI Components
+        Label songListLabel = new Label(" Hosts List");
         songListLabel.setId("Bigtext");
 
-
         Button backButton = new Button("Back");
-        GridPane.setConstraints(backButton, 0, 5);
         backButton.setOnAction(e -> prevPage());
 
-        TableColumn<DisplaySongs4host, String> SongColumn = new TableColumn<>("Songs");
-        SongColumn.setMinWidth(500);
-        SongColumn.setCellValueFactory(new PropertyValueFactory<>("songName"));
-        TableView<DisplaySongs4host> SongTable = new TableView<>();
-        SongTable.setItems(getSong());
-        SongTable.getColumns().addAll(SongColumn);
-        GridPane.setConstraints(SongTable, 0, 2);
 
-        //VBox vbox = new VBox();
-        //vbpane.setSpacing(15);
-        //vbox.setPadding(new Insets(200, 200, 200, 200));
+        TableColumn<DisplayHosts4Client, String> HostColumn = new TableColumn<>("Hosts");
+        HostColumn.setMinWidth(500);
+        HostColumn.setCellValueFactory(new PropertyValueFactory<>("hostName"));
+
+        HostsTable.setItems(getHost());
+        HostsTable.getColumns().addAll(HostColumn);
 
 
 
+        //Row Mouse Click Event
+        HostsTable.setRowFactory(e -> {
+            TableRow<DisplayHosts4Client> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (! row.isEmpty())) {
+                    DisplayHosts4Client rowData = row.getItem();
+                    System.out.println("Selected: " + rowData.getHostName());
+                }
+            });
+            return row;
+        });
 
 
-        pane.getChildren().addAll(songListLabel, addMusicButton, SongTable, backButton);
-        pane.setId("pagesix");
-        //scene4 = new Scene(vbox);
 
+
+
+        // Set location of components in GridPane
+        GridPane.setConstraints(songListLabel, 0, 0);
+
+        GridPane.setConstraints(backButton, 0, 2);
+
+        GridPane.setConstraints(HostsTable, 0, 1);
+
+
+
+
+        // Add components into GridPane
+        pane.getChildren().addAll(songListLabel, HostsTable, backButton);
     }
 
-
-    public ObservableList<DisplaySongs4host> getSong() {
-        ObservableList<DisplaySongs4host> Songs = FXCollections.observableArrayList();
-        return Songs;
-
+    public ObservableList<DisplayHosts4Client> getHost() {
+        ObservableList<DisplayHosts4Client> Hosts = FXCollections.observableArrayList();
+        return Hosts;
     }
 
     @Override
@@ -80,6 +93,6 @@ public class HostListPage extends Page {
 
     @Override
     public void prevPage() {
-        primaryStage.setScene(new CreateGroupPage(primaryStage));
+        primaryStage.setScene(new OptionsPage(primaryStage));
     }
 }
