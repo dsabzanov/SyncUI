@@ -1,14 +1,12 @@
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -22,6 +20,7 @@ import java.io.File;
  */
 public class CreatePlaylistPage extends Page {
 
+    private TableView<DisplaySongs4host> SongTable = new TableView<>(); //TableView Declared
 
     public CreatePlaylistPage(Stage primaryStage) {
         super(primaryStage);
@@ -29,32 +28,58 @@ public class CreatePlaylistPage extends Page {
     }
 
     private void buildUI() {
-        pane.setAlignment(Pos.CENTER);
-
-        Button addMusicButton = new Button("Add Music");
-        GridPane.setConstraints(addMusicButton, 1, 5);
+        pane.setAlignment(Pos.CENTER);  //Alignment of GridPane set to CENTER
 
 
+        //Song List label
         Label songListLabel = new Label(" Songs List");
         GridPane.setConstraints(songListLabel, 0, 0);
         songListLabel.setId("Bigtext");
 
 
+        //Add Music button
+        Button addMusicButton = new Button("Add Music");
+        GridPane.setConstraints(addMusicButton, 1, 0);
+
+
+        //Delete Music button
+        Button deleteMusicButton = new Button("Delete Song");
+        GridPane.setConstraints(deleteMusicButton, 1, 5);
+        deleteMusicButton.setOnAction(e -> deleteSong());
+
+
+        //Back button
         Button backButton = new Button("Back");
         GridPane.setConstraints(backButton, 0, 5);
         backButton.setOnAction(e -> prevPage());
 
+
+        //Table Column
         TableColumn<DisplaySongs4host, String> SongColumn = new TableColumn<>("Songs");
         SongColumn.setMinWidth(500);
         SongColumn.setCellValueFactory(new PropertyValueFactory<>("songName"));
-        TableView<DisplaySongs4host> SongTable = new TableView<>();
+
+
+        //Table View
         SongTable.setItems(getSong());
-        SongTable.getColumns().addAll(SongColumn);
+        SongTable.getColumns().add(SongColumn);
         GridPane.setConstraints(SongTable, 0, 2);
 
-        //VBox vbox = new VBox();
-        //vbpane.setSpacing(15);
-        //vbox.setPadding(new Insets(200, 200, 200, 200));
+
+        //Row Mouse Click Event
+        SongTable.setRowFactory(e -> {
+            TableRow<DisplaySongs4host> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (! row.isEmpty())) {
+                    DisplaySongs4host rowData = row.getItem();
+                    System.out.println("Selected: " + rowData.getSongName());
+                }
+            });
+            return row;
+        });
+
+
+
 
 
         addMusicButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -69,24 +94,33 @@ public class CreatePlaylistPage extends Page {
                 File file = fileChooser.showOpenDialog(primaryStage);
                 if (file != null) {
                     String fileName = file.getName();
-                    SongTable.getItems().add(new DisplaySongs4host(fileName));
-                    System.out.println(fileName);
+                    String filePath = file.getAbsolutePath();
+                    SongTable.getItems().add(new DisplaySongs4host(fileName, filePath));
+                    System.out.println("Added: " + fileName);
                 }
             }
         });
 
 
-        pane.getChildren().addAll(songListLabel, addMusicButton, SongTable, backButton);
-        pane.setId("pagesix");
-        //scene4 = new Scene(vbox);
 
+        pane.getChildren().addAll(songListLabel, addMusicButton, SongTable, backButton, deleteMusicButton);
+        pane.setId("pagesix");
     }
 
 
     public ObservableList<DisplaySongs4host> getSong() {
         ObservableList<DisplaySongs4host> Songs = FXCollections.observableArrayList();
         return Songs;
+    }
 
+
+    //Delete Song Method
+    public void deleteSong() {
+        ObservableList<DisplaySongs4host> selectedSong, allSongs;
+        allSongs = SongTable.getItems();
+        selectedSong = SongTable.getSelectionModel().getSelectedItems();
+
+        selectedSong.forEach(allSongs::remove);
     }
 
     @Override
