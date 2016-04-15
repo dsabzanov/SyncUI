@@ -1,3 +1,5 @@
+package GUI.Pages;
+
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -7,10 +9,11 @@ import javafx.stage.Stage;
 
 /**
  * Created by davidsabzanov on 4/11/16.
+ * Project: Sync
  */
-public class MainPage extends Page {
+class MainPage extends Page {
 
-    public MainPage(Stage primaryStage) {
+    MainPage(Stage primaryStage) {
         super(primaryStage);
         buildUI();
     }
@@ -23,28 +26,22 @@ public class MainPage extends Page {
         Label welcomeLabel = new Label("Welcome to SYNC");
         welcomeLabel.setId("Bigtext");
 
-        Label bluetoothNameLabel = new Label(" Bluetooth Name: ");
-        bluetoothNameLabel.setId("pagefour");
+        Label btNameLabel = new Label("Bluetooth Name: ");
+        btNameLabel.setId("pagefour");
 
-        TextField bluetoothNameTextField = new TextField();
-        String s = bluetoothNameTextField.getText();
+        TextField nameTextField = new TextField();
 
-        Button loginButton = new Button(" Login ");
-        loginButton.setOnAction(e -> nextPage());
-
+        Button loginBtn = new Button(" Login ");
+        loginBtn.setOnAction(e -> nextPage());
 
         // Set location of components in GridPane
-        GridPane.setConstraints(bluetoothNameLabel, 0, 3);
-
+        GridPane.setConstraints(btNameLabel, 0, 3);
         GridPane.setConstraints(welcomeLabel, 1, 0);
-
-        GridPane.setConstraints(bluetoothNameTextField, 1, 3);
-
-        GridPane.setConstraints(loginButton, 2, 5);
-
+        GridPane.setConstraints(nameTextField, 1, 3);
+        GridPane.setConstraints(loginBtn, 2, 5);
 
         // Add components into GridPane
-        pane.getChildren().addAll(welcomeLabel, bluetoothNameLabel, bluetoothNameTextField, loginButton);
+        pane.getChildren().addAll(welcomeLabel, btNameLabel, nameTextField, loginBtn);
     }
 
     @Override
@@ -54,6 +51,6 @@ public class MainPage extends Page {
 
     @Override
     public void prevPage() {
-
+        // Intentionally left blank
     }
 }

@@ -1,5 +1,6 @@
+package GUI.Pages;
+
 import javafx.geometry.Pos;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -8,10 +9,11 @@ import javafx.stage.Stage;
 
 /**
  * Created by davidsabzanov on 4/11/16.
+ * Project: Sync
  */
-public class CreateGroupPage extends Page {
+class CreateGroupPage extends Page {
 
-    public CreateGroupPage(Stage primaryStage) {
+    CreateGroupPage(Stage primaryStage) {
         super(primaryStage);
         buildUI();
     }
@@ -20,19 +22,17 @@ public class CreateGroupPage extends Page {
         pane.setId("pagethree");
         pane.setAlignment(Pos.CENTER);
         pane.setVgap(5);
-        //pane.setPadding(new Insets(25, 25, 25, 25));
-        //pane.setHgap(10);
 
         // Build UI Components
         Label createGroupLabel = new Label("Create A Group");
         createGroupLabel.setId("pagefour");
 
-        Label groupNameLabel = new Label(" Group Name: ");
+        Label groupNameLabel = new Label("Group Name: ");
         groupNameLabel.setId("pagefour");
 
         TextField groupNameTextField = new TextField();
 
-        Label pincodeLabel = new Label(" Pincode: ");
+        Label pincodeLabel = new Label("Pincode: ");
         pincodeLabel.setId("pagefour");
 
         TextField pincodeTextField = new TextField();
@@ -41,23 +41,20 @@ public class CreateGroupPage extends Page {
         Button backButton = new Button("Back");
         backButton.setOnAction(e -> prevPage());
 
-        Button addMusicButton = new Button(" Add Music ");
-        addMusicButton.setOnAction(e -> nextPage());
+        Button createGroupButton = new Button("Create Group");
+        createGroupButton.setOnAction(e -> nextPage());
 
         // Set location of components in GridPane
         GridPane.setConstraints(createGroupLabel, 0, 0);
-
         GridPane.setConstraints(groupNameLabel, 0, 1);
         GridPane.setConstraints(groupNameTextField, 1, 1);
-
         GridPane.setConstraints(pincodeLabel, 0, 2);
         GridPane.setConstraints(pincodeTextField, 1, 2);
-
         GridPane.setConstraints(backButton, 0, 3);
-        GridPane.setConstraints(addMusicButton, 3, 3);
+        GridPane.setConstraints(createGroupButton, 3, 3);
 
         // Add components into GridPane
-        pane.getChildren().addAll(backButton, groupNameLabel, pincodeLabel, createGroupLabel, addMusicButton, groupNameTextField, pincodeTextField);
+        pane.getChildren().addAll(backButton, groupNameLabel, pincodeLabel, createGroupLabel, createGroupButton, groupNameTextField, pincodeTextField);
     }
 
     @Override

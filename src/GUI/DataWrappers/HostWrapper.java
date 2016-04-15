@@ -1,15 +1,17 @@
+package GUI.DataWrappers;
+
 /**
  * Created by davidsabzanov on 4/14/16.
  */
-public class DisplayHosts4Client {
+public class HostWrapper {
 
     private String hostName;
 
-    public DisplayHosts4Client() {
+    public HostWrapper() {
         this.hostName = "";
     }
 
-    public DisplayHosts4Client(String hostName) {
+    public HostWrapper(String hostName) {
         this.hostName = hostName;
     }
 

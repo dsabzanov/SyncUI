@@ -1,22 +1,21 @@
+package GUI.Pages;
+
 import javafx.geometry.Pos;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 /**
  * Created by davidsabzanov on 4/11/16.
+ * Project: Sync
  */
-public class OptionsPage extends Page {
+class OptionsPage extends Page {
 
-
-    public OptionsPage(Stage primaryStage) {
+    OptionsPage(Stage primaryStage) {
         super(primaryStage);
         buildUI();
-
     }
-
 
     private void buildUI() {
         pane.setId("pagetwo");
@@ -25,26 +24,16 @@ public class OptionsPage extends Page {
         pane.setVgap(8);
         pane.setHgap(10);
 
-
         // Build UI Components
         Button createAGroupButton = new Button(" Create A Group");
-        createAGroupButton.setOnAction(e -> {
-            primaryStage.setScene(new CreateGroupPage(primaryStage));
-        });
-
+        createAGroupButton.setOnAction(e -> primaryStage.setScene(new CreateGroupPage(primaryStage)));
 
         Button joinAGroupButton = new Button(" Join A Group");
-        joinAGroupButton.setOnAction(e -> {
-            primaryStage.setScene(new BTAnimationPage(primaryStage));
-        });
-
-
+        joinAGroupButton.setOnAction(e -> primaryStage.setScene(new SearchProgressPage(primaryStage)));
 
         // Set location of components in GridPane
         GridPane.setConstraints(createAGroupButton, 0, 0);
-
         GridPane.setConstraints(joinAGroupButton, 0, 1);
-
 
         // Add components into GridPane
         pane.getChildren().addAll(createAGroupButton, joinAGroupButton);
