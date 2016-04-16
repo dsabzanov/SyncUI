@@ -11,8 +11,8 @@ import javafx.stage.Stage;
  */
 class SearchProgressPage extends Page {
 
-    SearchProgressPage(Stage primaryStage) {
-        super(primaryStage);
+    SearchProgressPage() {
+        super();
         buildUI();
     }
 
@@ -28,6 +28,6 @@ class SearchProgressPage extends Page {
 
     @Override
     public void prevPage() {
-        primaryStage.setScene(new OptionsPage(primaryStage));
+        Window.setScene(Window.PAGE.OPTIONS);
     }
 }

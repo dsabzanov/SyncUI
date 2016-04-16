@@ -16,8 +16,8 @@ import javafx.stage.Stage;
 public class PlayerPage extends Page {
     String coverArtURL = Page.class.getResource("../Images/defaultCoverArt.png").toString();
 
-    PlayerPage(Stage primaryStage) {
-        super(primaryStage);
+    PlayerPage() {
+        super();
         buildUI();
     }
 
@@ -60,6 +60,6 @@ public class PlayerPage extends Page {
 
     @Override
     public void prevPage() {
-        primaryStage.setScene(new CreatePlaylistPage(primaryStage));
+        Window.setScene(Window.PAGE.CREATEPLAYLIST);
     }
 }

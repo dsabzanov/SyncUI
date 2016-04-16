@@ -22,8 +22,8 @@ class CreatePlaylistPage extends Page {
 
     private TableView<SongWrapper> SongTable = new TableView<>(); //TableView Declared
 
-    CreatePlaylistPage(Stage primaryStage) {
-        super(primaryStage);
+    CreatePlaylistPage() {
+        super();
         buildUI();
     }
 
@@ -88,7 +88,7 @@ class CreatePlaylistPage extends Page {
                 new FileChooser.ExtensionFilter("MP3 Files (.mp3)", "*.mp3"),
                 new FileChooser.ExtensionFilter("WAV Files (.wav)", "*.wav")
         );
-        File file = fileChooser.showOpenDialog(primaryStage);
+        File file = fileChooser.showOpenDialog(null);
         if (file != null) {
             SongTable.getItems().add(new SongWrapper(file));
             System.out.println("Added: " + file.getName());
@@ -105,11 +105,11 @@ class CreatePlaylistPage extends Page {
 
     @Override
     public void nextPage() {
-        primaryStage.setScene(new PlayerPage(primaryStage));
+        Window.setScene(Window.PAGE.PLAYER);
     }
 
     @Override
     public void prevPage() {
-        primaryStage.setScene(new CreateGroupPage(primaryStage));
+        Window.setScene(Window.PAGE.CREATEGROUP);
     }
 }

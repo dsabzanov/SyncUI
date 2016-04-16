@@ -19,8 +19,8 @@ import java.util.ArrayList;
 
 public class HostListPage extends Page {
 
-    public HostListPage(Stage primaryStage) {
-        super(primaryStage);
+    public HostListPage() {
+        super();
         buildUI();
     }
 
@@ -58,6 +58,6 @@ public class HostListPage extends Page {
 
     @Override
     public void prevPage() {
-        primaryStage.setScene(new CreateGroupPage(primaryStage));
+        Window.setScene(Window.PAGE.CREATEGROUP);
     }
 }

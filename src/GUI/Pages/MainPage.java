@@ -13,8 +13,8 @@ import javafx.stage.Stage;
  */
 class MainPage extends Page {
 
-    MainPage(Stage primaryStage) {
-        super(primaryStage);
+    MainPage() {
+        super();
 
         // Disable Universal toolbar
         universalToolbar.setVisible(false);
@@ -49,7 +49,7 @@ class MainPage extends Page {
 
     @Override
     public void nextPage() {
-        primaryStage.setScene(new OptionsPage(primaryStage));
+        Window.setScene(Window.PAGE.OPTIONS);
     }
 
     @Override

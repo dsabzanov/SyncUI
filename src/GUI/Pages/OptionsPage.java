@@ -12,8 +12,8 @@ import javafx.stage.Stage;
  */
 class OptionsPage extends Page {
 
-    OptionsPage(Stage primaryStage) {
-        super(primaryStage);
+    OptionsPage() {
+        super();
         buildUI();
     }
 
@@ -26,10 +26,10 @@ class OptionsPage extends Page {
 
         // Build UI Components
         Button createAGroupButton = new Button(" Create A Group");
-        createAGroupButton.setOnAction(e -> primaryStage.setScene(new CreateGroupPage(primaryStage)));
+        createAGroupButton.setOnAction(e -> Window.setScene(Window.PAGE.CREATEGROUP));
 
         Button joinAGroupButton = new Button(" Join A Group");
-        joinAGroupButton.setOnAction(e -> primaryStage.setScene(new SearchProgressPage(primaryStage)));
+        joinAGroupButton.setOnAction(e -> Window.setScene(Window.PAGE.SEARCHPROGRESS));
 
         // Set location of components in GridPane
         GridPane.setConstraints(createAGroupButton, 0, 0);
@@ -45,6 +45,6 @@ class OptionsPage extends Page {
 
     @Override
     public void prevPage() {
-        primaryStage.setScene(new MainPage(primaryStage));
+        Window.setScene(Window.PAGE.MAIN);
     }
 }

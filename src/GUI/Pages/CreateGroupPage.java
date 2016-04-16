@@ -13,8 +13,8 @@ import javafx.stage.Stage;
  */
 class CreateGroupPage extends Page {
 
-    CreateGroupPage(Stage primaryStage) {
-        super(primaryStage);
+    CreateGroupPage() {
+        super();
         buildUI();
     }
 
@@ -55,11 +55,11 @@ class CreateGroupPage extends Page {
 
     @Override
     public void nextPage() {
-        primaryStage.setScene(new CreatePlaylistPage(primaryStage));
+        Window.setScene(Window.PAGE.CREATEPLAYLIST);
     }
 
     @Override
     public void prevPage() {
-        primaryStage.setScene(new OptionsPage(primaryStage));
+        Window.setScene(Window.PAGE.OPTIONS);
     }
 }

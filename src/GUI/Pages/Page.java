@@ -16,9 +16,8 @@ abstract class Page extends Scene {
     BorderPane pageContainer; // Main Container that holds entire page together
     GridPane contentPane = new GridPane(); // Holds Page specific content, all pages should only modify this
     HBox universalToolbar = new HBox(); // Holds the back button and anything else a page may want on top
-    Stage primaryStage;
 
-    Page(Stage primaryStage) {
+    Page() {
         super(new BorderPane(), 400, 500);
         pageContainer = (BorderPane) this.getRoot();
 
@@ -31,8 +30,6 @@ abstract class Page extends Scene {
         pageContainer.setTop(universalToolbar);
         pageContainer.setCenter(contentPane);
 
-
-        this.primaryStage = primaryStage;
         this.getStylesheets().add(CSS_STYLE);
         contentPane.setGridLinesVisible(true);
     }
