@@ -1,39 +1,35 @@
 .root {
     -fx-background: #007bbd;
     -fx-effect: dropshadow(three-pass-box, black, 30, 1.5, 1, 1);
-    -fx-font-size: 20 px;
-    -fx-font-family: "Arial Black";
+    -fx-font-size: 15 px;
+    -fx-font-family: "Consoles";
     -fx-text-fill: #FFFFFF;
 }
 
 
 #pagethree{
-    -fx-font-size: 18 px;
+    -fx-font-size: 15 px;
 }
 
 #pagesix{
-    -fx-font-size: 18 px;
+    -fx-font-size: 15 px;
 }
 
 #Bigtext{
-    -fx-font-size: 35 px;
-    -fx-font-family: "Arial Black";
+    -fx-font-size: 18 px;
+    -fx-font-family: "Consoles";
     -fx-text-fill: #FFFFFF;
 }
 
 .button {
-    -fx-font-size: 20px;
-    -fx-font-family: "Arial Black";
-    -fx-base: #2ecc71;
+    -fx-font-size: 15 px;
+    -fx-font-family: "Consoles";
+    -fx-base: #63b0e3;
 }
 
 #Bluetooth{
-    -fx-background-image: url("../Images/02.gif");
+    -fx-background-image: url("../Images/searching.gif");
     -fx-background-repeat: stretch;
-    -fx-background-size: 700 600;
+    -fx-background-size: auto;
     -fx-background-position: center center;
-    -fx-effect: dropshadow(three-pass-box, black, 30, 1.5, 1, 1);
-    fx-font-size: 80px;
-    -fx-font-family: "Arial Black";
-    -fx-base: #00CCFF;
 }

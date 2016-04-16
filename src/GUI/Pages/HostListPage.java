@@ -25,17 +25,14 @@ public class HostListPage extends Page {
     }
 
     private void buildUI() {
-        pane.setId("pagesix");
-        pane.setAlignment(Pos.CENTER);
+        contentPane.setId("pagesix");
+        contentPane.setAlignment(Pos.CENTER);
 
         // build UI components
         Button addMusicButton = new Button("Add Music");
 
         Label songListLabel = new Label(" Songs List");
         songListLabel.setId("Bigtext");
-
-        Button backButton = new Button("Back");
-        backButton.setOnAction(e -> prevPage());
 
         TableColumn<SongWrapper, String> SongColumn = new TableColumn<>("Songs");
         SongColumn.setMinWidth(500);
@@ -48,11 +45,10 @@ public class HostListPage extends Page {
         // Arrange in GridPane
         GridPane.setConstraints(addMusicButton, 1, 5);
         GridPane.setConstraints(songListLabel, 0, 0);
-        GridPane.setConstraints(backButton, 0, 5);
         GridPane.setConstraints(SongTable, 0, 2);
 
         // Add to GridPane
-        pane.getChildren().addAll(songListLabel, addMusicButton, SongTable, backButton);
+        contentPane.getChildren().addAll(songListLabel, addMusicButton, SongTable);
     }
 
     @Override

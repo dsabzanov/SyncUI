@@ -17,15 +17,8 @@ class SearchProgressPage extends Page {
     }
 
     private void buildUI() {
-        pane.setAlignment(Pos.CENTER);
-
-        Button backButton = new Button("Tap to Cancel");
-        backButton.setOnAction(e -> prevPage());
-
-        GridPane.setConstraints(backButton, 16, 1293);
-
-        pane.getChildren().addAll(backButton);
-        pane.setId("Bluetooth");
+        contentPane.setAlignment(Pos.CENTER);
+        contentPane.setId("Bluetooth");
     }
 
     @Override

@@ -15,12 +15,15 @@ class MainPage extends Page {
 
     MainPage(Stage primaryStage) {
         super(primaryStage);
+
+        // Disable Universal toolbar
+        universalToolbar.setVisible(false);
         buildUI();
     }
 
     private void buildUI() {
-        pane.setId("mainpage");
-        pane.setAlignment(Pos.CENTER);
+        contentPane.setId("mainpage");
+        contentPane.setAlignment(Pos.CENTER);
 
         // Build UI Components
         Label welcomeLabel = new Label("Welcome to SYNC");
@@ -41,7 +44,7 @@ class MainPage extends Page {
         GridPane.setConstraints(loginBtn, 2, 5);
 
         // Add components into GridPane
-        pane.getChildren().addAll(welcomeLabel, btNameLabel, nameTextField, loginBtn);
+        contentPane.getChildren().addAll(welcomeLabel, btNameLabel, nameTextField, loginBtn);
     }
 
     @Override

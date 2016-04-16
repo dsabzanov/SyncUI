@@ -19,9 +19,9 @@ class CreateGroupPage extends Page {
     }
 
     private void buildUI() {
-        pane.setId("pagethree");
-        pane.setAlignment(Pos.CENTER);
-        pane.setVgap(5);
+        contentPane.setId("pagethree");
+        contentPane.setAlignment(Pos.CENTER);
+        contentPane.setVgap(5);
 
         // Build UI Components
         Label createGroupLabel = new Label("Create A Group");
@@ -38,9 +38,6 @@ class CreateGroupPage extends Page {
         TextField pincodeTextField = new TextField();
         pincodeTextField.setPromptText("Optional");
 
-        Button backButton = new Button("Back");
-        backButton.setOnAction(e -> prevPage());
-
         Button createGroupButton = new Button("Create Group");
         createGroupButton.setOnAction(e -> nextPage());
 
@@ -50,11 +47,10 @@ class CreateGroupPage extends Page {
         GridPane.setConstraints(groupNameTextField, 1, 1);
         GridPane.setConstraints(pincodeLabel, 0, 2);
         GridPane.setConstraints(pincodeTextField, 1, 2);
-        GridPane.setConstraints(backButton, 0, 3);
         GridPane.setConstraints(createGroupButton, 3, 3);
 
         // Add components into GridPane
-        pane.getChildren().addAll(backButton, groupNameLabel, pincodeLabel, createGroupLabel, createGroupButton, groupNameTextField, pincodeTextField);
+        contentPane.getChildren().addAll(groupNameLabel, pincodeLabel, createGroupLabel, createGroupButton, groupNameTextField, pincodeTextField);
     }
 
     @Override

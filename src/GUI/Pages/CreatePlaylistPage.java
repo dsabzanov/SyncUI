@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -27,12 +28,8 @@ class CreatePlaylistPage extends Page {
     }
 
     private void buildUI() {
-        pane.setId("pagesix");
-        pane.setAlignment(Pos.CENTER);  //Alignment of GridPane set to CENTER
-
-        //Song List label
-        Label songListLabel = new Label(" Songs List");
-        songListLabel.setId("Bigtext");
+        contentPane.setId("pagesix");
+        contentPane.setAlignment(Pos.TOP_CENTER);  //Alignment of GridPane set to CENTER
 
         //Add Music button
         Button addMusicButton = new Button("Add Music");
@@ -41,16 +38,23 @@ class CreatePlaylistPage extends Page {
         Button deleteMusicButton = new Button("Delete Song");
         deleteMusicButton.setOnAction(e -> deleteSong());
 
-        //Back button
-        Button backButton = new Button("Back");
-        backButton.setOnAction(e -> prevPage());
+        //Start Button
+        Button startButton = new Button("Start");
+        startButton.setOnAction(e -> nextPage());
+        startButton.setAlignment(Pos.BASELINE_RIGHT);
+
+        //Button container
+        HBox buttons = new HBox(79); // Spacing between buttons
+        buttons.setMinWidth(contentPane.getWidth());
+        buttons.getChildren().addAll(addMusicButton, deleteMusicButton, startButton);
 
         //Table Column
-        TableColumn<SongWrapper, String> SongColumn = new TableColumn<>("Songs");
-        SongColumn.setMinWidth(500);
+        TableColumn<SongWrapper, String> SongColumn = new TableColumn<>("Library");
+        SongColumn.setMinWidth(contentPane.getWidth());
         SongColumn.setCellValueFactory(new PropertyValueFactory<>("songName"));
 
         //Table View
+        SongTable.setMinWidth(this.getWidth());
         SongTable.setItems(FXCollections.observableArrayList(new ArrayList<>()));
         SongTable.getColumns().add(SongColumn);
 
@@ -61,13 +65,9 @@ class CreatePlaylistPage extends Page {
         addMusicButton.setOnAction(event -> addMusic());
 
         //Arrange UI components
-        GridPane.setConstraints(songListLabel, 0, 0);
-        GridPane.setConstraints(addMusicButton, 1, 0);
-        GridPane.setConstraints(deleteMusicButton, 1, 5);
-        GridPane.setConstraints(backButton, 0, 5);
         GridPane.setConstraints(SongTable, 0, 2);
-
-        pane.getChildren().addAll(songListLabel, addMusicButton, SongTable, backButton, deleteMusicButton);
+        GridPane.setConstraints(buttons, 0, 3);
+        contentPane.getChildren().addAll(SongTable, buttons);
     }
 
     private TableRow<SongWrapper> createRowFactory() {
@@ -105,7 +105,7 @@ class CreatePlaylistPage extends Page {
 
     @Override
     public void nextPage() {
-
+        primaryStage.setScene(new PlayerPage(primaryStage));
     }
 
     @Override
