@@ -13,7 +13,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
@@ -58,6 +57,6 @@ public class HostListPage extends Page {
 
     @Override
     public void prevPage() {
-        Window.setScene(Window.PAGE.CREATEGROUP);
+        Window.setScene(Window.PAGE.CREATE_GROUP);
     }
 }

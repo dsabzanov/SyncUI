@@ -8,9 +8,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -102,11 +100,11 @@ class CreatePlaylistPage extends Page {
 
     @Override
     public void nextPage() {
-        Window.setScene(Window.PAGE.PLAYER);
+        Window.setScene(Window.PAGE.SERVER_PLAYER);
     }
 
     @Override
     public void prevPage() {
-        Window.setScene(Window.PAGE.CREATEGROUP);
+        Window.setScene(Window.PAGE.CREATE_GROUP);
     }
 }

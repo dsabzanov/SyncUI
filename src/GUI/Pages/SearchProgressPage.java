@@ -1,6 +1,7 @@
 package GUI.Pages;
 
 import GUI.Resources.Resources;
+import javafx.animation.PauseTransition;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -10,6 +11,7 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * Created by davidsabzanov on 4/11/16.
@@ -25,13 +27,20 @@ class SearchProgressPage extends Page {
     private void buildUI() {
         contentPane.setAlignment(Pos.CENTER);
         contentPane.setId("Bluetooth");
+
+        //Set background
         ImageView background = Resources.getInstance().getImageView("searching");
         contentPane.getChildren().add(background);
+
+        //Pause and move to next page
+        PauseTransition trans = new PauseTransition(Duration.seconds(3));
+        trans.setOnFinished(e -> nextPage());
+        trans.play();
     }
 
     @Override
     public void nextPage() {
-
+        Window.setScene(Window.PAGE.CLIENT_PLAYER);
     }
 
     @Override

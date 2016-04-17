@@ -15,9 +15,11 @@ import javafx.scene.layout.*;
  */
 public class PlayerPage extends Page {
     private int playPauseIndex = 0;
+    private boolean enableControls;
 
-    PlayerPage() {
+    PlayerPage(boolean enableControls) {
         super();
+        this.enableControls = enableControls;
         buildUI();
     }
 
@@ -48,6 +50,9 @@ public class PlayerPage extends Page {
         progressSlider.valueProperty().addListener((observable, oldValue, newValue) ->
                 progressBar.setProgress(newValue.doubleValue() / 100)
         );
+        if (!enableControls)
+            progressSlider.setDisable(true);
+
         StackPane.setAlignment(progressBar, Pos.TOP_CENTER);
         StackPane.setAlignment(progressSlider, Pos.CENTER);
         progress.getChildren().addAll(progressBar, progressSlider);
@@ -89,7 +94,8 @@ public class PlayerPage extends Page {
         nextButton.setOnAction(e -> next());
 
         //Add playback buttons to container
-        controlContainer.getChildren().addAll(prevButton, rewindButton, playButton, ffButton, nextButton);
+        if (enableControls)
+            controlContainer.getChildren().addAll(prevButton, rewindButton, playButton, ffButton, nextButton);
         componentContainer.getChildren().addAll(coverArt, progress, controlContainer);
 
         //Add Pinlabel to Universal toolbar
@@ -142,6 +148,9 @@ public class PlayerPage extends Page {
 
     @Override
     public void prevPage() {
-        Window.setScene(Window.PAGE.CREATEPLAYLIST);
+        if (enableControls)
+            Window.setScene(Window.PAGE.CREATE_PLAYLIST);
+        else
+            Window.setScene(Window.PAGE.OPTIONS);
     }
 }

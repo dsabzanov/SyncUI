@@ -4,7 +4,6 @@ import javafx.geometry.Pos;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 
 /**
  * Created by davidsabzanov on 4/11/16.
@@ -26,10 +25,10 @@ class OptionsPage extends Page {
 
         // Build UI Components
         Button createAGroupButton = new Button("Start a Group");
-        createAGroupButton.setOnAction(e -> Window.setScene(Window.PAGE.CREATEGROUP));
+        createAGroupButton.setOnAction(e -> Window.setScene(Window.PAGE.CREATE_GROUP));
 
         Button joinAGroupButton = new Button("Join a Group ");
-        joinAGroupButton.setOnAction(e -> Window.setScene(Window.PAGE.SEARCHPROGRESS));
+        joinAGroupButton.setOnAction(e -> Window.setScene(Window.PAGE.SEARCH_PROGRESS));
 
         // Set location of components in GridPane
         GridPane.setConstraints(createAGroupButton, 0, 0);

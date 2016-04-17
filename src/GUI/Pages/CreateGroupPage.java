@@ -6,8 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
-import javafx.stage.Stage;
 
 /**
  * Created by davidsabzanov on 4/11/16.
@@ -52,7 +50,7 @@ class CreateGroupPage extends Page {
 
     @Override
     public void nextPage() {
-        Window.setScene(Window.PAGE.CREATEPLAYLIST);
+        Window.setScene(Window.PAGE.CREATE_PLAYLIST);
     }
 
     @Override

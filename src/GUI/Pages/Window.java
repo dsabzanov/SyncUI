@@ -44,40 +44,38 @@ public class Window extends Application {
         Page pageInstance;
         if (pageCache.containsKey(page)) {
             pageInstance = pageCache.get(page);
-        } else
+        } else {
             switch (page) { // Please see PAGE enum for details
-                case CREATEGROUP:
+                case CREATE_GROUP:
                     pageInstance = new CreateGroupPage();
-                    pageCache.put(PAGE.CREATEGROUP, pageInstance);
                     break;
-                case CREATEPLAYLIST:
+                case CREATE_PLAYLIST:
                     pageInstance = new CreatePlaylistPage();
-                    pageCache.put(PAGE.CREATEPLAYLIST, pageInstance);
                     break;
                 case HOSTLIST:
                     pageInstance = new HostListPage();
-                    pageCache.put(PAGE.HOSTLIST, pageInstance);
                     break;
                 case MAIN:
                     pageInstance = new MainPage();
-                    pageCache.put(PAGE.MAIN, pageInstance);
                     break;
                 case OPTIONS:
                     pageInstance = new OptionsPage();
-                    pageCache.put(PAGE.OPTIONS, pageInstance);
                     break;
-                case PLAYER:
-                    pageInstance = new PlayerPage();
-                    pageCache.put(PAGE.PLAYER, pageInstance);
+                case SERVER_PLAYER:
+                    pageInstance = new PlayerPage(true);
                     break;
-                case SEARCHPROGRESS:
+                case CLIENT_PLAYER:
+                    pageInstance = new PlayerPage(false);
+                    break;
+                case SEARCH_PROGRESS:
                     pageInstance = new SearchProgressPage();
-                    pageCache.put(PAGE.SEARCHPROGRESS, pageInstance);
                     break;
                 default:
                     pageInstance = new MainPage();
-                    pageCache.put(PAGE.MAIN, pageInstance);
             }
+            if (!page.equals(PAGE.SEARCH_PROGRESS)) // Dont cache Search progress
+                pageCache.put(page, pageInstance);
+        }
         stage.setScene(pageInstance);
     }
 
@@ -86,11 +84,11 @@ public class Window extends Application {
      * If a new page is created, one must add the page to the enum and
      * add the page to the {@link #setScene(PAGE)} switch statement.
      * <p>
-     * If one wishes for the pages content to be thrown away, simply do not add
-     * the pageInstance into the pageCache within the switch statement.
+     * If one wishes for the pages content to be thrown away, simply add the page
+     * to the if statement at the end of the switch block.
      */
     enum PAGE {
-        CREATEGROUP, CREATEPLAYLIST, HOSTLIST, MAIN, OPTIONS, PLAYER, SEARCHPROGRESS
+        CREATE_GROUP, CREATE_PLAYLIST, HOSTLIST, MAIN, OPTIONS, SERVER_PLAYER, CLIENT_PLAYER, SEARCH_PROGRESS
     }
 }
 
