@@ -4,6 +4,7 @@ package GUI.Pages;
  * Project: Sync
  */
 
+import GUI.Resources.Resources;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -14,6 +15,8 @@ import java.util.HashMap;
 public class Window extends Application {
     private static Stage stage;
     private static final HashMap<PAGE, Page> pageCache = new HashMap<>();
+    public static final int HEIGHT = 380;
+    public static final int WIDTH = 300;
 
     public static void main(String args[]) {
         launch(args);
@@ -22,8 +25,11 @@ public class Window extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
+        Resources.getInstance();
         stage.setTitle("Sync 1.0");
-        stage.setScene(new MainPage());
+        stage.setResizable(false);
+        stage.setScene(new PlayerPage());
+        stage.sizeToScene();
         stage.show();
     }
 

@@ -15,8 +15,25 @@
     -fx-font-size: 15 px;
 }
 
+#playerButton{
+    -fx-background-color: transparent;
+}
+
+.progress-bar .bar {
+    -fx-background-radius: 5;
+    -fx-background-color: black;
+}
+
+.progress-bar .track {
+    -fx-background-color: grey;
+}
+
+.slider .track {
+    -fx-background-color: transparent;
+}
+
 #Bigtext{
-    -fx-font-size: 18 px;
+    -fx-font-size: 23 px;
     -fx-font-family: "Consoles";
     -fx-text-fill: #FFFFFF;
 }
@@ -25,11 +42,4 @@
     -fx-font-size: 15 px;
     -fx-font-family: "Consoles";
     -fx-base: #63b0e3;
-}
-
-#Bluetooth{
-    -fx-background-image: url("../Images/searching.gif");
-    -fx-background-repeat: stretch;
-    -fx-background-size: auto;
-    -fx-background-position: center center;
 }

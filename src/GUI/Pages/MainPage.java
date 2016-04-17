@@ -1,5 +1,6 @@
 package GUI.Pages;
 
+import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,36 +16,34 @@ class MainPage extends Page {
 
     MainPage() {
         super();
-
         // Disable Universal toolbar
-        universalToolbar.setVisible(false);
+        pageContainer.setTop(null);
         buildUI();
     }
 
     private void buildUI() {
-        contentPane.setId("mainpage");
         contentPane.setAlignment(Pos.CENTER);
-
+        contentPane.setVgap(5);
         // Build UI Components
-        Label welcomeLabel = new Label("Welcome to SYNC");
+        Label welcomeLabel = new Label("Welcome");
         welcomeLabel.setId("Bigtext");
 
-        Label btNameLabel = new Label("Bluetooth Name: ");
-        btNameLabel.setId("pagefour");
-
         TextField nameTextField = new TextField();
+        nameTextField.setPromptText("Username");
 
         Button loginBtn = new Button(" Login ");
         loginBtn.setOnAction(e -> nextPage());
 
         // Set location of components in GridPane
-        GridPane.setConstraints(btNameLabel, 0, 3);
-        GridPane.setConstraints(welcomeLabel, 1, 0);
-        GridPane.setConstraints(nameTextField, 1, 3);
-        GridPane.setConstraints(loginBtn, 2, 5);
-
+        GridPane.setConstraints(welcomeLabel, 0, 0);
+        GridPane.setConstraints(nameTextField, 0, 1);
+        GridPane.setConstraints(loginBtn, 0, 3);
+        GridPane.setHalignment(welcomeLabel, HPos.CENTER);
+        GridPane.setHalignment(loginBtn, HPos.CENTER);
         // Add components into GridPane
-        contentPane.getChildren().addAll(welcomeLabel, btNameLabel, nameTextField, loginBtn);
+        contentPane.getChildren().addAll(welcomeLabel, nameTextField, loginBtn);
+
+        welcomeLabel.requestFocus(); // to take away focus from textfield
     }
 
     @Override

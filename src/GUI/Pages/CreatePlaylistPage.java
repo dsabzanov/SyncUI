@@ -3,6 +3,7 @@ package GUI.Pages;
 import GUI.DataWrappers.SongWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -32,21 +33,15 @@ class CreatePlaylistPage extends Page {
         contentPane.setAlignment(Pos.TOP_CENTER);  //Alignment of GridPane set to CENTER
 
         //Add Music button
-        Button addMusicButton = new Button("Add Music");
+        Button addMusicButton = new Button("+");
 
         //Delete Music button
-        Button deleteMusicButton = new Button("Delete Song");
+        Button deleteMusicButton = new Button("-");
         deleteMusicButton.setOnAction(e -> deleteSong());
 
         //Start Button
         Button startButton = new Button("Start");
         startButton.setOnAction(e -> nextPage());
-        startButton.setAlignment(Pos.BASELINE_RIGHT);
-
-        //Button container
-        HBox buttons = new HBox(79); // Spacing between buttons
-        buttons.setMinWidth(contentPane.getWidth());
-        buttons.getChildren().addAll(addMusicButton, deleteMusicButton, startButton);
 
         //Table Column
         TableColumn<SongWrapper, String> SongColumn = new TableColumn<>("Library");
@@ -65,9 +60,11 @@ class CreatePlaylistPage extends Page {
         addMusicButton.setOnAction(event -> addMusic());
 
         //Arrange UI components
-        GridPane.setConstraints(SongTable, 0, 2);
-        GridPane.setConstraints(buttons, 0, 3);
-        contentPane.getChildren().addAll(SongTable, buttons);
+        GridPane.setConstraints(SongTable, 0, 1);
+        GridPane.setConstraints(startButton, 0, 2);
+        GridPane.setHalignment(startButton, HPos.RIGHT);
+        contentPane.getChildren().addAll(SongTable,startButton);
+        universalToolbar.getChildren().addAll(addMusicButton, deleteMusicButton);
     }
 
     private TableRow<SongWrapper> createRowFactory() {

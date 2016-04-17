@@ -1,5 +1,6 @@
 package GUI.Pages;
 
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -15,10 +16,10 @@ abstract class Page extends Scene {
     private static final String CSS_STYLE = Page.class.getResource("../Styles/style.css").toExternalForm();
     BorderPane pageContainer; // Main Container that holds entire page together
     GridPane contentPane = new GridPane(); // Holds Page specific content, all pages should only modify this
-    HBox universalToolbar = new HBox(); // Holds the back button and anything else a page may want on top
+    HBox universalToolbar = new HBox(10); // Holds the back button and anything else a page may want on top
 
     Page() {
-        super(new BorderPane(), 400, 500);
+        super(new BorderPane(), Window.WIDTH, Window.HEIGHT);
         pageContainer = (BorderPane) this.getRoot();
 
         buildUniversalToolbar();
@@ -26,12 +27,11 @@ abstract class Page extends Scene {
         pageContainer.setMinWidth(this.getWidth());
         pageContainer.setMinHeight(this.getHeight());
 
-
+        contentPane.setMinWidth(this.getWidth());
         pageContainer.setTop(universalToolbar);
         pageContainer.setCenter(contentPane);
-
+        //BorderPane.setMargin(contentPane, new Insets(24, 0, 0, 0));
         this.getStylesheets().add(CSS_STYLE);
-        contentPane.setGridLinesVisible(true);
     }
 
     private void buildUniversalToolbar() {

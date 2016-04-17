@@ -1,10 +1,12 @@
 package GUI.Pages;
 
+import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
@@ -24,33 +26,28 @@ class CreateGroupPage extends Page {
         contentPane.setVgap(5);
 
         // Build UI Components
-        Label createGroupLabel = new Label("Create A Group");
-        createGroupLabel.setId("pagefour");
-
-        Label groupNameLabel = new Label("Group Name: ");
-        groupNameLabel.setId("pagefour");
-
         TextField groupNameTextField = new TextField();
+        groupNameTextField.setPromptText("Group Name");
 
-        Label pincodeLabel = new Label("Pincode: ");
-        pincodeLabel.setId("pagefour");
+        Label createGroupLabel = new Label("Group Setup");
+        createGroupLabel.setId("Bigtext");
 
         TextField pincodeTextField = new TextField();
-        pincodeTextField.setPromptText("Optional");
+        pincodeTextField.setPromptText("Pin Code (Optional)");
 
         Button createGroupButton = new Button("Create Group");
         createGroupButton.setOnAction(e -> nextPage());
 
         // Set location of components in GridPane
         GridPane.setConstraints(createGroupLabel, 0, 0);
-        GridPane.setConstraints(groupNameLabel, 0, 1);
-        GridPane.setConstraints(groupNameTextField, 1, 1);
-        GridPane.setConstraints(pincodeLabel, 0, 2);
-        GridPane.setConstraints(pincodeTextField, 1, 2);
-        GridPane.setConstraints(createGroupButton, 3, 3);
+        GridPane.setConstraints(groupNameTextField, 0, 1);
+        GridPane.setConstraints(pincodeTextField, 0, 2);
+        GridPane.setConstraints(createGroupButton, 0, 3);
+        GridPane.setHalignment(createGroupLabel, HPos.CENTER);
+        GridPane.setHalignment(createGroupButton, HPos.CENTER);
 
         // Add components into GridPane
-        contentPane.getChildren().addAll(groupNameLabel, pincodeLabel, createGroupLabel, createGroupButton, groupNameTextField, pincodeTextField);
+        contentPane.getChildren().addAll(createGroupLabel, createGroupButton, groupNameTextField, pincodeTextField);
     }
 
     @Override
