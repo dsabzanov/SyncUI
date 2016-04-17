@@ -73,7 +73,9 @@ public class Window extends Application {
                 default:
                     pageInstance = new MainPage();
             }
-            if (!page.equals(PAGE.SEARCH_PROGRESS)) // Dont cache Search progress
+            if (!page.equals(PAGE.SEARCH_PROGRESS) &&
+                    !page.equals(PAGE.CLIENT_PLAYER) &&
+                    !page.equals(PAGE.SERVER_PLAYER)) // Dont cache Search progress
                 pageCache.put(page, pageInstance);
         }
         stage.setScene(pageInstance);

@@ -15,6 +15,8 @@ import javafx.scene.layout.*;
  */
 public class PlayerPage extends Page {
     private int playPauseIndex = 0;
+    private ImageView playPauseImages[];
+    private Button playButton;
     private boolean enableControls;
 
     PlayerPage(boolean enableControls) {
@@ -38,7 +40,6 @@ public class PlayerPage extends Page {
         coverArt.setPreserveRatio(false);
         coverArt.setFitHeight(this.getWidth() - 20);
         coverArt.setFitWidth(this.getWidth()); // shrink to fit window
-
 
         //Progress bar for audio
         StackPane progress = new StackPane();
@@ -64,13 +65,13 @@ public class PlayerPage extends Page {
         //Create playback buttons
         Button prevButton = new Button();
         Button rewindButton = new Button();
-        Button playButton = new Button();
+        playButton = new Button();
         Button ffButton = new Button();
         Button nextButton = new Button();
 
         //Add images to buttons
         //Used to cycle through images
-        ImageView playPauseImages[] = new ImageView[2];
+        playPauseImages = new ImageView[2];
         playPauseImages[0] = Resources.getInstance().getImageView("playButton");
         playPauseImages[1] = Resources.getInstance().getImageView("pauseButton");
         prevButton.setGraphic(Resources.getInstance().getImageView("prevButton"));
@@ -83,12 +84,11 @@ public class PlayerPage extends Page {
         prevButton.setOnAction(e -> previous());
         rewindButton.setOnAction(e -> rewind());
         playButton.setOnAction(e -> {
-            if (playPauseIndex++ == 0)
+            if (playPauseIndex == 0)
                 play();
             else
                 pause();
-            playPauseIndex %= 2;
-            playButton.setGraphic(playPauseImages[playPauseIndex]);
+            swapPlayPauseImage();
         });
         ffButton.setOnAction(e -> fastForward());
         nextButton.setOnAction(e -> next());
@@ -115,6 +115,12 @@ public class PlayerPage extends Page {
 
         //Set locations on gridpane
         GridPane.setConstraints(componentContainer, 0, 0);
+    }
+
+    private void swapPlayPauseImage() {
+        playPauseIndex++;
+        playPauseIndex %= 2;
+        playButton.setGraphic(playPauseImages[playPauseIndex]);
     }
 
     private void play() {
