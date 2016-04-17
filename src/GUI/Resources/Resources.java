@@ -20,7 +20,7 @@ import java.util.stream.Stream;
  */
 public class Resources {
     private static Resources instance = null;
-    private static String resourceDirectory = System.getProperty("user.dir") + "\\src\\GUI\\Resources";
+    private static String resourceDirectory = System.getProperty("user.dir") + "/src/GUI/Resources";
     private static HashMap<String, Image> images = new HashMap<>();
 
     private Resources() {
