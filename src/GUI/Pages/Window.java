@@ -28,7 +28,7 @@ public class Window extends Application {
         Resources.getInstance();
         stage.setTitle("Sync 1.0");
         stage.setResizable(false);
-        stage.setScene(new PlayerPage());
+        stage.setScene(new MainPage());
         stage.sizeToScene();
         stage.show();
     }
