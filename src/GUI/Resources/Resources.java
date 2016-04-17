@@ -31,7 +31,7 @@ public class Resources {
         List<File> imageFiles;
 
         // Gets a list of files within the Images directory
-        try (Stream<File> fileStream = Files.walk(Paths.get(resourceDirectory + "\\Images"))
+        try (Stream<File> fileStream = Files.walk(Paths.get(resourceDirectory + "/Images"))
                 .filter(Files::isRegularFile).map(Path::toFile)) {
             imageFiles = fileStream.collect(Collectors.toList());
         } catch (IOException e) {
