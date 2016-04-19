@@ -32,6 +32,8 @@ abstract class Page extends Scene {
         pageContainer.setCenter(contentPane);
         //BorderPane.setMargin(contentPane, new Insets(24, 0, 0, 0));
         this.getStylesheets().add(CSS_STYLE);
+
+        //contentPane.setGridLinesVisible(true);
     }
 
     private void buildUniversalToolbar() {

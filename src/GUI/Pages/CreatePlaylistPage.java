@@ -53,7 +53,7 @@ class CreatePlaylistPage extends Page {
 
         //Table Column
         TableColumn<SongWrapper, String> SongColumn = new TableColumn<>("Library");
-        SongColumn.setMinWidth(contentPane.getWidth());
+        SongColumn.setMinWidth(this.getWidth());
         SongColumn.setCellValueFactory(new PropertyValueFactory<>("songName"));
 
         //Table View
