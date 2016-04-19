@@ -9,7 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
-
+import javafx.scene.control.Tooltip;
+import javafx.scene.control.Button;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 class CreatePlaylistPage extends Page {
 
     private TableView<SongWrapper> SongTable = new TableView<>(); //TableView Declared
+
 
     CreatePlaylistPage() {
         super();
@@ -32,9 +34,17 @@ class CreatePlaylistPage extends Page {
 
         //Add Music button
         Button addMusicButton = new Button("+");
+        // Display brief details about what the button do.
+        addMusicButton.setTooltip(new Tooltip("Add a new song to the list"));
+
+        // Group Name label
+        Label GroupL = new Label("Group Name: " + CreateGroupPage.GroupName);
+        GroupL.setId("pagethree");
+
 
         //Delete Music button
         Button deleteMusicButton = new Button("-");
+        deleteMusicButton.setTooltip(new Tooltip("Delete a song from the list"));
         deleteMusicButton.setOnAction(e -> deleteSong());
 
         //Start Button
@@ -62,7 +72,7 @@ class CreatePlaylistPage extends Page {
         GridPane.setConstraints(startButton, 0, 2);
         GridPane.setHalignment(startButton, HPos.RIGHT);
         contentPane.getChildren().addAll(SongTable,startButton);
-        universalToolbar.getChildren().addAll(addMusicButton, deleteMusicButton);
+        universalToolbar.getChildren().addAll(addMusicButton, deleteMusicButton, GroupL);
     }
 
     private TableRow<SongWrapper> createRowFactory() {

@@ -12,6 +12,9 @@ import javafx.scene.layout.GridPane;
  * Project: Sync
  */
 class CreateGroupPage extends Page {
+    public static String pinNumber;
+    public static String GroupName;
+
 
     CreateGroupPage() {
         super();
@@ -33,8 +36,19 @@ class CreateGroupPage extends Page {
         TextField pincodeTextField = new TextField();
         pincodeTextField.setPromptText("Pin Code (Optional)");
 
+
         Button createGroupButton = new Button("Create Group");
-        createGroupButton.setOnAction(e -> nextPage());
+        createGroupButton.setOnAction(e -> {
+            Label gname1= new Label();
+            Label pcode1= new Label();
+            String gname= groupNameTextField.getText();
+            String pcode= pincodeTextField.getText();
+            gname1.setText(gname);
+            pcode1.setText(pcode);
+            pinNumber = pcode;
+            GroupName = gname;
+            nextPage();
+        });
 
         // Set location of components in GridPane
         GridPane.setConstraints(createGroupLabel, 0, 0);
@@ -57,4 +71,6 @@ class CreateGroupPage extends Page {
     public void prevPage() {
         Window.setScene(Window.PAGE.OPTIONS);
     }
+
+
 }

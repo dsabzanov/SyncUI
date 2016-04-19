@@ -32,11 +32,11 @@ public class PlayerPage extends Page {
         VBox componentContainer = new VBox();
 
         //Label to display pin number
-        Label pinLabel = new Label("PIN: 1234");
+        Label pinLabel = new Label("PIN: " + CreateGroupPage.pinNumber);
         pinLabel.setId("Bigtext");
 
         //Load and Resize Cover art image to fit boundry
-        ImageView coverArt = Resources.getInstance().getImageView("defaultCoverArt");
+        ImageView coverArt = Resources.getInstance().getImageView("albumart");
         coverArt.setPreserveRatio(false);
         coverArt.setFitHeight(this.getWidth() - 20);
         coverArt.setFitWidth(this.getWidth()); // shrink to fit window
