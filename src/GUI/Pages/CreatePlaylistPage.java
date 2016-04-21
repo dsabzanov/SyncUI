@@ -20,7 +20,8 @@ import java.util.ArrayList;
  */
 class CreatePlaylistPage extends Page {
 
-    private TableView<SongWrapper> SongTable = new TableView<>(); //TableView Declared
+    private TableView<SongWrapper> SongTable = new TableView<>();
+    public static String songN;//TableView Declared
 
 
     CreatePlaylistPage() {
@@ -78,9 +79,11 @@ class CreatePlaylistPage extends Page {
     private TableRow<SongWrapper> createRowFactory() {
         TableRow<SongWrapper> row = new TableRow<>();
         row.setOnMouseClicked(event -> {
-            if (event.getClickCount() == 2 && (!row.isEmpty())) {
+            if (event.getClickCount() == 1 && (!row.isEmpty())) {
                 SongWrapper rowData = row.getItem();
-                System.out.println("Selected: " + rowData.getSongName());
+                System.out.println("Selected Song Name: " + rowData.getSongName());
+                System.out.println("Selected Song Path: " + rowData.getFilePath());
+                songN= rowData.getSongName();
             }
         });
         return row;
@@ -93,10 +96,12 @@ class CreatePlaylistPage extends Page {
                 new FileChooser.ExtensionFilter("MP3 Files (.mp3)", "*.mp3"),
                 new FileChooser.ExtensionFilter("WAV Files (.wav)", "*.wav")
         );
+
         File file = fileChooser.showOpenDialog(null);
         if (file != null) {
             SongTable.getItems().add(new SongWrapper(file));
-            System.out.println("Added: " + file.getName());
+            songN= file.getName();
+            System.out.println("Song Added: " + file.getName());
         }
     }
 
@@ -105,6 +110,7 @@ class CreatePlaylistPage extends Page {
         ObservableList<SongWrapper> selectedSong, allSongs;
         allSongs = SongTable.getItems();
         selectedSong = SongTable.getSelectionModel().getSelectedItems();
+        songN= SongTable.getAccessibleText();
         selectedSong.forEach(allSongs::remove);
     }
 

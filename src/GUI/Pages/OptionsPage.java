@@ -25,9 +25,11 @@ class OptionsPage extends Page {
 
         // Build UI Components
         Button createAGroupButton = new Button("Start a Group");
+        createAGroupButton.setId("btnLogin1");
         createAGroupButton.setOnAction(e -> Window.setScene(Window.PAGE.CREATE_GROUP));
 
         Button joinAGroupButton = new Button("Join a Group ");
+        joinAGroupButton.setId("btnLogin1");
         joinAGroupButton.setOnAction(e -> Window.setScene(Window.PAGE.SEARCH_PROGRESS));
 
         // Set location of components in GridPane

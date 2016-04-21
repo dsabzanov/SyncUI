@@ -1,5 +1,5 @@
 .root {
-    -fx-background: #007bbd;
+    -fx-background: gray;
     -fx-effect: dropshadow(three-pass-box, black, 30, 1.5, 1, 1);
     -fx-font-size: 15 px;
     -fx-font-family: "Consoles";
@@ -11,6 +11,9 @@
     -fx-font-size: 15 px;
 }
 
+#page523{
+    -fx-font-size: 12 px;
+}
 #pagesix{
     -fx-font-size: 15 px;
 }
@@ -42,4 +45,29 @@
     -fx-font-size: 15 px;
     -fx-font-family: "Consoles";
     -fx-base: #63b0e3;
+}
+#root1 {
+ -fx-background-color:  linear-gradient(lightgray, gray);
+ /* -fx-border-color: white;
+ //-fx-border-radius: 1500;
+ -fx-padding: 10 10 10 10;
+ -fx-background-radius: 1000;*/
+
+}
+
+#bp1 {
+ -fx-background-color:  linear-gradient(gray,DimGrey );
+
+}
+
+#btnLogin1 {
+
+    -fx-font-size: 15 px;
+    -fx-font-family: "Consoles";
+    -fx-background-color: linear-gradient(orange, orangered );
+}
+
+#text1 {
+ -fx-text-fill:  linear-gradient(orange , orangered);
+ -fx-font-size: 53 px;
 }

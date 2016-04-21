@@ -33,7 +33,9 @@ public class PlayerPage extends Page {
 
         //Label to display pin number
         Label pinLabel = new Label("PIN: " + CreateGroupPage.pinNumber);
-        pinLabel.setId("Bigtext");
+        pinLabel.setId("page523");
+        Label SongName = new Label("Song: " + CreatePlaylistPage.songN);
+        SongName.setId("page523");
 
         //Load and Resize Cover art image to fit boundry
         ImageView coverArt = Resources.getInstance().getImageView("albumart");
@@ -100,6 +102,7 @@ public class PlayerPage extends Page {
 
         //Add Pinlabel to Universal toolbar
         universalToolbar.getChildren().add(pinLabel);
+        universalToolbar.getChildren().add(SongName);
 
         //Set button style for controls
         controlContainer.getChildren().forEach(e -> {
