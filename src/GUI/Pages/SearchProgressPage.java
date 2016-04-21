@@ -40,7 +40,7 @@ class SearchProgressPage extends Page {
 
     @Override
     public void nextPage() {
-        Window.setScene(Window.PAGE.CLIENT_PLAYER);
+        Window.setScene(Window.PAGE.HOSTLIST);
     }
 
     @Override

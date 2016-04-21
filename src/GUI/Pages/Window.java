@@ -55,6 +55,9 @@ public class Window extends Application {
                 case HOSTLIST:
                     pageInstance = new HostListPage();
                     break;
+                case PINCODE:
+                    pageInstance = new PinCodePage();
+                    break;
                 case MAIN:
                     pageInstance = new MainPage();
                     break;
@@ -93,7 +96,7 @@ public class Window extends Application {
      * to the if statement at the end of the switch block.
      */
     enum PAGE {
-        CREATE_GROUP, CREATE_PLAYLIST, HOSTLIST, MAIN, OPTIONS, SERVER_PLAYER, CLIENT_PLAYER, SEARCH_PROGRESS, SEARCH_PROGRESSV2
+        CREATE_GROUP, CREATE_PLAYLIST, HOSTLIST, PINCODE, MAIN, OPTIONS, SERVER_PLAYER, CLIENT_PLAYER, SEARCH_PROGRESS, SEARCH_PROGRESSV2
     }
 }
 
