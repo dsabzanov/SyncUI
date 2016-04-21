@@ -110,7 +110,6 @@ class CreatePlaylistPage extends Page {
         ObservableList<SongWrapper> selectedSong, allSongs;
         allSongs = SongTable.getItems();
         selectedSong = SongTable.getSelectionModel().getSelectedItems();
-        songN= SongTable.getAccessibleText();
         selectedSong.forEach(allSongs::remove);
     }
 

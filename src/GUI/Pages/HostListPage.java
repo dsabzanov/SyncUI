@@ -34,7 +34,7 @@ public class HostListPage extends Page {
         songListLabel.setId("Bigtext");
 
         TableColumn<SongWrapper, String> SongColumn = new TableColumn<>("Songs");
-        SongColumn.setMinWidth(500);
+        SongColumn.setMinWidth(this.getWidth());
         SongColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
         TableView<SongWrapper> SongTable = new TableView<>();
@@ -52,11 +52,11 @@ public class HostListPage extends Page {
 
     @Override
     public void nextPage() {
-
+        Window.setScene(Window.PAGE.PINCODE);
     }
 
     @Override
     public void prevPage() {
-        Window.setScene(Window.PAGE.CREATE_GROUP);
+        Window.setScene(Window.PAGE.OPTIONS);
     }
 }
