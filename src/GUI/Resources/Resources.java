@@ -25,6 +25,7 @@ public class Resources {
 
     private Resources() {
         loadAllResources();
+        instance = this;
     }
 
     private void loadAllResources() {
