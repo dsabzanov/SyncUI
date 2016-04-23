@@ -56,7 +56,7 @@ public class PlayerPage extends Page {
         if (!enableControls)
             progressSlider.setDisable(true);
 
-        StackPane.setAlignment(progressBar, Pos.TOP_CENTER);
+        StackPane.setAlignment(progressBar, Pos.CENTER);
         StackPane.setAlignment(progressSlider, Pos.CENTER);
         progress.getChildren().addAll(progressBar, progressSlider);
 
@@ -160,6 +160,6 @@ public class PlayerPage extends Page {
         if (enableControls)
             Window.setScene(Window.PAGE.CREATE_PLAYLIST);
         else
-            Window.setScene(Window.PAGE.OPTIONS);
+            Window.setScene(Window.PAGE.HOSTLIST);
     }
 }

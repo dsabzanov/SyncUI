@@ -1,9 +1,9 @@
 .root {
-    -fx-background: gray;
+    -fx-background: #BDC3C7;
     -fx-effect: dropshadow(three-pass-box, black, 30, 1.5, 1, 1);
     -fx-font-size: 15 px;
-    -fx-font-family: "Consoles";
-    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Arial";
+    -fx-text-fill: #34495e;
 }
 
 
@@ -24,16 +24,27 @@
 
 .progress-bar .bar {
     -fx-background-radius: 5;
-    -fx-background-color: black;
+    -fx-background-color: #1abc9c;
+    -fx-padding: 5px;
+    -fx-background-insets: 0px;
 }
 
 .progress-bar .track {
-    -fx-background-color: grey;
+    -fx-background-color: #ebedef;
 }
 
 .slider .track {
     -fx-background-color: transparent;
 }
+
+.slider .thumb {
+    -fx-background-color: #16a085;
+}
+
+.slider .thumb:hover {
+    -fx-background-color: #48c9b0;
+}
+
 
 #Bigtext{
     -fx-font-size: 23 px;
@@ -43,31 +54,82 @@
 
 .button {
     -fx-font-size: 15 px;
-    -fx-font-family: "Consoles";
-    -fx-base: #63b0e3;
-}
-#root1 {
- -fx-background-color:  linear-gradient(lightgray, gray);
- /* -fx-border-color: white;
- //-fx-border-radius: 1500;
- -fx-padding: 10 10 10 10;
- -fx-background-radius: 1000;*/
-
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #3498db;
+    -fx-background-radius: 0;
 }
 
-#bp1 {
- -fx-background-color:  linear-gradient(gray,DimGrey );
-
-}
-
-#btnLogin1 {
-
+.button:hover {
     -fx-font-size: 15 px;
-    -fx-font-family: "Consoles";
-    -fx-background-color: linear-gradient(orange, orangered );
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #3498db;
+    -fx-background-radius: 0;
+    -fx-opacity: 0.7;
 }
 
-#text1 {
- -fx-text-fill:  linear-gradient(orange , orangered);
+
+
+.text-field {
+    -fx-background-radius: 0;
+}
+
+.table-column {
+    -fx-background-color: FFFFFF;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view {
+    -fx-control-inner-background: #FFFFFF;
+    -fx-background-color: #FFFFFF;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #34495e;
+    -fx-font-size: 15pt;
+    -fx-alignment: center-left;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-text-fill: #34495e;
+    -fx-background-color: -fx-focus-color;
+}
+
+.table-row-cell:selected {
+   -fx-background-color: #bdc3c7;
+}
+
+.table-row-cell:selected .table-cell {
+   -fx-background-color: #bdc3c7;
+}
+
+.table-row-cell .text {
+    -fx-fill: #34495e;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: #34495e;
+}
+
+#loginButton, #addMusicButton {
+    -fx-background-color: #2ecc71;
+}
+
+#loginButton:hover {
+    -fx-opacity: 0.7;
+}
+
+#deleteMusicButton {
+    -fx-background-color: #e74c3c;
+}
+
+
+#welcomeLabel {
  -fx-font-size: 53 px;
 }

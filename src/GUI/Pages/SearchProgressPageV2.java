@@ -53,7 +53,7 @@ public class SearchProgressPageV2 extends Page {
         Rectangle circle3 = new Rectangle(0,0, 100,100);
         circle3.setArcHeight(100);
         circle3.setArcWidth(100);
-        circle3.setFill(Color.web("#007bbd"));
+        circle3.setFill(Color.web("#BDC3C7"));
 
         FadeTransition circle1fade =
                 new FadeTransition(Duration.millis(3000), circle1);
@@ -124,12 +124,11 @@ public class SearchProgressPageV2 extends Page {
         parallelTransition.play();
 
 
-
         //Pause and move to next page
-        PauseTransition trans = new PauseTransition(Duration.seconds(5));
+        PauseTransition trans = new PauseTransition(Duration.seconds(6));
+        //Duration must always be 3 x cycleCount to show a clean animation without interruption.
         trans.setOnFinished(e -> nextPage());
         trans.play();
-
 
 
 
@@ -142,7 +141,7 @@ public class SearchProgressPageV2 extends Page {
 
     @Override
     public void nextPage() {
-        Window.setScene(Window.PAGE.CLIENT_PLAYER);
+        Window.setScene(Window.PAGE.HOSTLIST);
     }
 
     @Override

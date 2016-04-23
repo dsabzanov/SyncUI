@@ -30,7 +30,7 @@ class OptionsPage extends Page {
 
         Button joinAGroupButton = new Button("Join a Group ");
         joinAGroupButton.setId("btnLogin1");
-        joinAGroupButton.setOnAction(e -> Window.setScene(Window.PAGE.SEARCH_PROGRESS));
+        joinAGroupButton.setOnAction(e -> Window.setScene(Window.PAGE.SEARCH_PROGRESSV2));
 
         // Set location of components in GridPane
         GridPane.setConstraints(createAGroupButton, 0, 0);

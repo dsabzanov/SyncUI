@@ -5,9 +5,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.Button;
@@ -37,30 +39,39 @@ class CreatePlaylistPage extends Page {
         Button addMusicButton = new Button("+");
         // Display brief details about what the button do.
         addMusicButton.setTooltip(new Tooltip("Add a new song to the list"));
+        addMusicButton.setId("addMusicButton");
+/*
 
         // Group Name label
         Label GroupL = new Label("Group Name: " + CreateGroupPage.GroupName);
         GroupL.setId("pagethree");
 
+*/
 
         //Delete Music button
         Button deleteMusicButton = new Button("-");
         deleteMusicButton.setTooltip(new Tooltip("Delete a song from the list"));
         deleteMusicButton.setOnAction(e -> deleteSong());
+        deleteMusicButton.setId("deleteMusicButton");
+
+        //HBox for Adding and Deleting music
+        HBox actionButtons = new HBox(17);
 
         //Start Button
         Button startButton = new Button("Start");
         startButton.setOnAction(e -> nextPage());
 
         //Table Column
-        TableColumn<SongWrapper, String> SongColumn = new TableColumn<>("Library");
+        TableColumn<SongWrapper, String> SongColumn = new TableColumn<>(CreateGroupPage.GroupName + " - Playlist");
         SongColumn.setMinWidth(this.getWidth());
         SongColumn.setCellValueFactory(new PropertyValueFactory<>("songName"));
+        SongColumn.setResizable(false);
 
         //Table View
         SongTable.setMinWidth(this.getWidth());
         SongTable.setItems(FXCollections.observableArrayList(new ArrayList<>()));
         SongTable.getColumns().add(SongColumn);
+        SongTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
         //Create Row Mouse Click Event
         SongTable.setRowFactory(e -> createRowFactory());
@@ -71,9 +82,12 @@ class CreatePlaylistPage extends Page {
         //Arrange UI components
         GridPane.setConstraints(SongTable, 0, 1);
         GridPane.setConstraints(startButton, 0, 2);
-        GridPane.setHalignment(startButton, HPos.RIGHT);
-        contentPane.getChildren().addAll(SongTable,startButton);
-        universalToolbar.getChildren().addAll(addMusicButton, deleteMusicButton, GroupL);
+        GridPane.setHalignment(startButton, HPos.CENTER);
+        GridPane.setValignment(startButton, VPos.CENTER);
+        actionButtons.setAlignment(Pos.CENTER_RIGHT);
+        contentPane.getChildren().addAll(actionButtons, SongTable,startButton);
+        actionButtons.getChildren().addAll(addMusicButton, deleteMusicButton);
+        universalToolbar.getChildren().addAll(actionButtons);
     }
 
     private TableRow<SongWrapper> createRowFactory() {

@@ -6,6 +6,7 @@ package GUI.Pages;
 
 import GUI.DataWrappers.SongWrapper;
 import javafx.collections.FXCollections;
+import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -28,31 +29,31 @@ public class HostListPage extends Page {
         contentPane.setAlignment(Pos.CENTER);
 
         // build UI components
-        Button addMusicButton = new Button("Add Music");
+        Button joinGroupButton = new Button("Join Group");
+        joinGroupButton.setOnAction(e -> nextPage());
+        GridPane.setHalignment(joinGroupButton, HPos.CENTER);
 
-        Label songListLabel = new Label(" Songs List");
-        songListLabel.setId("Bigtext");
 
-        TableColumn<SongWrapper, String> SongColumn = new TableColumn<>("Songs");
+        TableColumn<SongWrapper, String> SongColumn = new TableColumn<>("Groups");
         SongColumn.setMinWidth(this.getWidth());
         SongColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-        TableView<SongWrapper> SongTable = new TableView<>();
-        SongTable.setItems(FXCollections.observableArrayList(new ArrayList<>()));
-        SongTable.getColumns().add(SongColumn);
+        TableView<SongWrapper> GroupTable = new TableView<>();
+        GroupTable.setItems(FXCollections.observableArrayList(new ArrayList<>()));
+        GroupTable.getColumns().add(SongColumn);
 
         // Arrange in GridPane
-        GridPane.setConstraints(addMusicButton, 1, 5);
-        GridPane.setConstraints(songListLabel, 0, 0);
-        GridPane.setConstraints(SongTable, 0, 2);
+        GridPane.setConstraints(joinGroupButton, 0, 2);
+        //GridPane.setConstraints(groupListLabel, 0, 0);
+        GridPane.setConstraints(GroupTable, 0, 1);
 
         // Add to GridPane
-        contentPane.getChildren().addAll(songListLabel, addMusicButton, SongTable);
+        contentPane.getChildren().addAll( joinGroupButton, GroupTable);
     }
 
     @Override
     public void nextPage() {
-        Window.setScene(Window.PAGE.PINCODE);
+        Window.setScene(Window.PAGE.LOADING);
     }
 
     @Override

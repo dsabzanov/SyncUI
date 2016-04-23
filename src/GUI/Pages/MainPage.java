@@ -42,13 +42,13 @@ class MainPage extends Page {
         // Build UI Components
         Label welcomeLabel = new Label("Welcome");
         //welcomeLabel.setEffect(dropShadow);
-        welcomeLabel.setId("text1");
+        welcomeLabel.setId("welcomeLabel");
 
         TextField nameTextField = new TextField();
         nameTextField.setPromptText("Username");
 
         Button loginBtn = new Button(" Login ");
-        loginBtn.setId("btnLogin1");
+        loginBtn.setId("loginButton");
         loginBtn.setOnAction(e -> nextPage());
 
 
@@ -63,9 +63,9 @@ class MainPage extends Page {
         r.setFraction(0.7f);
         contentPane.setEffect(r);*/
 
-        pageContainer.setId("bp1");
-        contentPane.setId("root1");
-        loginBtn.setId("btnLogin1");
+        //pageContainer.setId("bp1");
+        //contentPane.setId("root1");
+        loginBtn.setId("loginButton");
 
 
         // Add components into GridPane

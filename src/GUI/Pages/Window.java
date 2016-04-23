@@ -76,6 +76,9 @@ public class Window extends Application {
                 case SEARCH_PROGRESSV2:
                     pageInstance = new SearchProgressPageV2();
                     break;
+                case LOADING:
+                    pageInstance = new LoadingPage();
+                    break;
                 default:
                     pageInstance = new MainPage();
             }
@@ -96,7 +99,7 @@ public class Window extends Application {
      * to the if statement at the end of the switch block.
      */
     enum PAGE {
-        CREATE_GROUP, CREATE_PLAYLIST, HOSTLIST, PINCODE, MAIN, OPTIONS, SERVER_PLAYER, CLIENT_PLAYER, SEARCH_PROGRESS, SEARCH_PROGRESSV2
+        CREATE_GROUP, CREATE_PLAYLIST, HOSTLIST, PINCODE, MAIN, OPTIONS, SERVER_PLAYER, CLIENT_PLAYER, SEARCH_PROGRESS, SEARCH_PROGRESSV2, LOADING
     }
 }
 
