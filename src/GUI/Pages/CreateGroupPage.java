@@ -6,6 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+
 
 /**
  * Created by davidsabzanov on 4/11/16.
@@ -15,6 +18,7 @@ class CreateGroupPage extends Page {
     public static String pinNumber;
     public static String GroupName;
 
+    private static final int LIMIT = 4;
 
     CreateGroupPage() {
         super();
@@ -28,6 +32,7 @@ class CreateGroupPage extends Page {
 
         // Build UI Components
         TextField groupNameTextField = new TextField();
+        //groupNameTextField.lengthProperty().addListener(new ChangeListener<Number>());
         groupNameTextField.setPromptText("Group Name");
 
         Label createGroupLabel = new Label("Group Setup");
@@ -35,6 +40,7 @@ class CreateGroupPage extends Page {
 
         TextField pincodeTextField = new TextField();
         pincodeTextField.setPromptText("Pin Code (Optional)");
+
 
 
         Button createGroupButton = new Button("Create Group");
@@ -71,6 +77,8 @@ class CreateGroupPage extends Page {
     public void prevPage() {
         Window.setScene(Window.PAGE.OPTIONS);
     }
+
+
 
 
 }

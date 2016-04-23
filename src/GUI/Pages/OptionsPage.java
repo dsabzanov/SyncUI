@@ -4,12 +4,17 @@ import javafx.geometry.Pos;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
 /**
  * Created by davidsabzanov on 4/11/16.
  * Project: Sync
  */
 class OptionsPage extends Page {
+
+    private static final int LIMIT = 4;
+
 
     OptionsPage() {
         super();
@@ -26,6 +31,7 @@ class OptionsPage extends Page {
         // Build UI Components
         Button createAGroupButton = new Button("Start a Group");
         createAGroupButton.setId("btnLogin1");
+
         createAGroupButton.setOnAction(e -> Window.setScene(Window.PAGE.CREATE_GROUP));
 
         Button joinAGroupButton = new Button("Join a Group ");
@@ -48,4 +54,5 @@ class OptionsPage extends Page {
     public void prevPage() {
         Window.setScene(Window.PAGE.MAIN);
     }
+
 }

@@ -133,3 +133,10 @@
 #welcomeLabel {
  -fx-font-size: 53 px;
 }
+
+#loadingimage {
+  -fx-background-image: url("loading.gif");
+  -fx-background-repeat: stretch;
+  -fx-background-size: 150.0 71.0;
+  -fx-background-position: center center;
+}
